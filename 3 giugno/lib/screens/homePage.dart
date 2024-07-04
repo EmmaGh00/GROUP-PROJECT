@@ -6,6 +6,7 @@ import 'package:project_test1/screens/calendarPage.dart';
 import 'package:project_test1/screens/emergencyPage.dart';
 import 'package:project_test1/screens/loginPage.dart';
 import 'package:project_test1/screens/monitoringPage.dart';
+import 'package:project_test1/screens/myDiaryPage.dart';
 import 'package:project_test1/screens/profilePage.dart';
 import 'package:project_test1/screens/privacyPage.dart';
 
@@ -72,6 +73,8 @@ class HomePage extends StatelessWidget {
                         style: TextStyle(
                           color: Colors.blue,
                           fontSize: 16,
+                          fontStyle: FontStyle.normal,
+                          fontWeight: FontWeight.bold,
                         )
                       ),
                       onPressed: () {
@@ -115,9 +118,13 @@ class HomePage extends StatelessWidget {
                         style: TextStyle(
                           color: Colors.blue,
                           fontSize: 16,
+                          fontStyle: FontStyle.normal,
+                          fontWeight: FontWeight.bold,
                         ),
                       ),
-                      onPressed: () {},
+                      onPressed: (){
+                        Navigator.push (context, MaterialPageRoute(builder:(context) => MyDiaryPage()));
+                      },
                     ),
                     //EMERGENCY
                     ElevatedButton.icon(
@@ -130,6 +137,8 @@ class HomePage extends StatelessWidget {
                         style: TextStyle(
                           color: Colors.blue,
                           fontSize: 16,
+                          fontStyle: FontStyle.normal,
+                          fontWeight: FontWeight.bold,
                         )
                       ),
                       onPressed: () {
@@ -236,7 +245,7 @@ class HomePage extends StatelessWidget {
     Navigator.pop(context);
     //Then pop the HomePage
     Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => AwardsPage()));
-  }//_toLoginPage
+  }//_toAwardsPage
 
 } //HomePage
 
