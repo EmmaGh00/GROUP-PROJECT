@@ -47,176 +47,42 @@ class _PrivacyPageState extends State<PrivacyPage> {
                 mainAxisSize: MainAxisSize.max,
                 crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(16, 0, 0, 60),
-                      child: Text('This app respects the rigths under GDPR (General Data Regulation Protection), so you have the rights:',
-                        style: TextStyle(
-                            fontFamily: 'Arial',
-                            fontSize: 23.0,
-                            fontStyle: FontStyle.normal,
-                            fontWeight: FontWeight.bold,
-                            letterSpacing: 0.2,
-                        ),
+                    Text('This app respects the rigths under GDPR (General Data Regulation Protection), so you have the rights:',
+                      style: TextStyle(
+                        fontFamily: 'Outfit',
+                        fontStyle: FontStyle.normal,
+                        fontWeight: FontWeight.normal,
+                        color: Colors.black,
+                        fontSize: 20,
+                        letterSpacing: 0,
                       ),
                     ),
-                    Padding( 
-                      padding: EdgeInsetsDirectional.fromSTEB(2, 0, 0, 20),
-                      child: Column(
-                        mainAxisSize: MainAxisSize.max,
-                        children: [
-
-                          // GREEN NUMBER
-                          Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(0, 0, 8, 0),
-                            child: Row(
-                              mainAxisSize: MainAxisSize.max,
-                              children: [
-                                Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(0, 8, 0, 0),
-                                  child: Icon(
-                                    Icons.person_rounded,
-                                    color:Colors.black, 
-                                    size: 24,
-                                  ),
-                                ),
-                                Text(' to be informed about the collection and use of your personal data',
-                                  style: TextStyle (
-                                    fontFamily: 'Arial',
-                                    fontSize: 17.0,
-                                    fontStyle: FontStyle.normal,
-                                    fontWeight: FontWeight.normal,
-                                    letterSpacing: 0.2,
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                          
-                                
-                              ],
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-
-                    // UNIQUE NUMBER
-                    Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(2, 0, 0, 20),
-                      child: Column(
-                        mainAxisSize: MainAxisSize.max,
-                        children: [
-                          Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
-                            child: Row(
-                              mainAxisSize: MainAxisSize.max,
-                              children: [
-                                Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
-                                  child: Icon(
-                                    Icons.person_rounded,
-                                    color: Colors.black,
-                                    size: 24,
-                                  ),
-                                ),
-                                Text('to access and receive copy of your personal data',
-                                  style: TextStyle(
-                                    fontFamily: 'Arial',
-                                    fontSize: 17.0,
-                                    fontStyle: FontStyle.normal,
-                                    fontWeight: FontWeight.normal,
-                                    letterSpacing: 0.2,
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                          Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(0, 8,0, 0),
-                            child: Row(
-                              mainAxisSize: MainAxisSize.max,
-                              children: [
-                                Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(0, 8, 0, 0),
-                                  child: Icon(
-                                    Icons.phone_rounded,
-                                    color: Colors.black,
-                                    size: 24,
-                                  ),
-                                ),
-                                
-                              ],
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-
-                    // PERSONAL NUMBER
-                    Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(2, 20, 0, 60),
-                      child: Column(
-                        mainAxisSize: MainAxisSize.max,
-                        children: [
-                          Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(0, 0, 8, 0),
-                            child: Row(
-                              mainAxisSize: MainAxisSize.max,
-                              children: [
-                                Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(0, 8, 0, 0),
-                                  child: Icon(
-                                    Icons.person_rounded,
-                                    color: Colors.black,
-                                    size: 24,
-                                  ),
-                                ),
-                                Text('to have inaccurate personal data rectified or complete',
-                                  style: TextStyle(
-                                    letterSpacing: 0.2,
-                                    fontFamily: 'Arial',
-                                    fontSize: 17.0,
-                                    fontStyle: FontStyle.normal,
-                                    fontWeight: FontWeight.normal,
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                          Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(0, 0, 8, 20),
-                            child: Row(
-                              mainAxisSize: MainAxisSize.max,
-                              children: [
-                                Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(0, 8, 0, 0),
-                                  child: Icon(
-                                    Icons.phone_rounded,
-                                    color: Colors.black,
-                                    size: 24,
-                                  ),
-                                ),
-                                
-                              ],
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
+                    Text('- to be informed about the collection and use of your personal data; \n- to access and receive copy of your personal data; \n- to have inaccurate personal data rectified or completed; \n- to have personal data erased; \n- to object to the processing of personal data in certain circumstances; \n- to restrict processing of you data; \n- to move, copy or transfer your personal data easily to another controller; \n- not to be subject to automated decision making and profiling.',
+                      style: TextStyle(
+                        fontFamily: 'Outfit',
+                        fontStyle: FontStyle.normal,
+                        fontWeight: FontWeight.normal,
+                        color: Colors.black,
+                        fontSize: 17,
+                        letterSpacing: 0,
+                      )),
                     Opacity(
                       opacity: 0.1,
                       child: Align(
                         alignment: Alignment.center,
                         child: Icon(
-                          Icons.emergency_outlined,
+                          Icons.shield_outlined,
                           color: Colors.blue,
                           size: 300,
                           ),
                         ),
                     ),
                   ],
-                ),
-              ),    
+              ),
+            ), 
+          ],
+        ),
+      ),   
     );
   } // Widget Build context
 

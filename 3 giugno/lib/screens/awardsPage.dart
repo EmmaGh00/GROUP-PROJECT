@@ -1,15 +1,14 @@
 // ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors
 import 'package:flutter/material.dart';
-
 import 'package:project_test1/screens/homePage.dart';
 
-class Awards extends StatefulWidget { 
+class AwardsPage extends StatefulWidget { 
   
   @override
-  _AwardsState createState() => _AwardsState();
+  _AwardsPageState createState() => _AwardsPageState();
 } //LoginPage
 
-class _AwardsState extends State<Awards> {
+class _AwardsPageState extends State<AwardsPage> {
 
   @override
   Widget build(BuildContext context) {
@@ -17,13 +16,13 @@ class _AwardsState extends State<Awards> {
       backgroundColor: Colors.white,
        // backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
       appBar: AppBar(    
-        title: Text('Emergency',
+        title: Text('Awards',
           style: TextStyle(
             fontFamily: 'Outfit',
             fontStyle: FontStyle.normal,
             fontWeight: FontWeight.normal,
             color: Colors.blue,
-            fontSize: 30,
+            fontSize: 25,
             letterSpacing: 0,
           ),
         ),
@@ -46,7 +45,7 @@ class _AwardsState extends State<Awards> {
                   children: [
                     Padding(
                       padding: EdgeInsetsDirectional.fromSTEB(16, 0, 0, 60),
-                      child: Text('Emergency contact',
+                      child: Text('Your score is: ',
                         style: TextStyle(
                             fontFamily: 'Arial',
                             fontSize: 23.0,
@@ -55,196 +54,55 @@ class _AwardsState extends State<Awards> {
                             letterSpacing: 0.2,
                         ),
                       ),
-                    ),
-                    Padding( 
-                      padding: EdgeInsetsDirectional.fromSTEB(2, 0, 0, 20),
-                      child: Column(
-                        mainAxisSize: MainAxisSize.max,
-                        children: [
-
-                          // GREEN NUMBER
-                          Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(0, 0, 8, 0),
-                            child: Row(
-                              mainAxisSize: MainAxisSize.max,
-                              children: [
-                                Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(0, 8, 0, 0),
-                                  child: Icon(
-                                    Icons.person_rounded,
-                                    color:Colors.black, 
-                                    size: 24,
-                                  ),
-                                ),
-                                Text('ITALY GREEN NUMBER ALCOL',
-                                  style: TextStyle (
-                                    fontFamily: 'Arial',
-                                    fontSize: 17.0,
-                                    fontStyle: FontStyle.normal,
-                                    fontWeight: FontWeight.normal,
-                                    letterSpacing: 0.2,
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                          Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(0, 8, 8, 25),
-                            child: Row(
-                              mainAxisSize: MainAxisSize.max,
-                              children: [
-                                Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(0, 8, 0, 0),
-                                  child: Icon(
-                                    Icons.phone_rounded,
-                                    color: Colors.black,
-                                    size: 24,
-                                  ),
-                                ),
-                                Text('Phone: 800 63 20 00',
-                                  style: TextStyle(
-                                      letterSpacing: 0,
-                                      fontFamily: 'Arial',
-                                      fontSize: 18.0,
-                                      fontStyle: FontStyle.normal,
-                                      fontWeight: FontWeight.normal,
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-
-                    // UNIQUE NUMBER
-                    Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(2, 0, 0, 20),
-                      child: Column(
-                        mainAxisSize: MainAxisSize.max,
-                        children: [
-                          Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
-                            child: Row(
-                              mainAxisSize: MainAxisSize.max,
-                              children: [
-                                Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
-                                  child: Icon(
-                                    Icons.person_rounded,
-                                    color: Colors.black,
-                                    size: 24,
-                                  ),
-                                ),
-                                Text('UNIQUE EMERGENCY ITALIAN NUMBER',
-                                  style: TextStyle(
-                                    fontFamily: 'Arial',
-                                    fontSize: 17.0,
-                                    fontStyle: FontStyle.normal,
-                                    fontWeight: FontWeight.normal,
-                                    letterSpacing: 0.2,
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                          Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(0, 8,0, 0),
-                            child: Row(
-                              mainAxisSize: MainAxisSize.max,
-                              children: [
-                                Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(0, 8, 0, 0),
-                                  child: Icon(
-                                    Icons.phone_rounded,
-                                    color: Colors.black,
-                                    size: 24,
-                                  ),
-                                ),
-                                Text('Phone: 112 ',
-                                  style: TextStyle(
-                                    letterSpacing: 0,
-                                    fontFamily: 'Arial',
-                                    fontSize: 18.0,
-                                    fontStyle: FontStyle.normal,
-                                    fontWeight: FontWeight.normal,
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-
-                    // PERSONAL NUMBER
-                    Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(2, 20, 0, 60),
-                      child: Column(
-                        mainAxisSize: MainAxisSize.max,
-                        children: [
-                          Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(0, 0, 8, 0),
-                            child: Row(
-                              mainAxisSize: MainAxisSize.max,
-                              children: [
-                                Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(0, 8, 0, 0),
-                                  child: Icon(
-                                    Icons.person_rounded,
-                                    color: Colors.black,
-                                    size: 24,
-                                  ),
-                                ),
-                                Text('PRIVATE EMERGENCY CONTACT',
-                                  style: TextStyle(
-                                    letterSpacing: 0.2,
-                                    fontFamily: 'Arial',
-                                    fontSize: 17.0,
-                                    fontStyle: FontStyle.normal,
-                                    fontWeight: FontWeight.normal,
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                          Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(0, 0, 8, 20),
-                            child: Row(
-                              mainAxisSize: MainAxisSize.max,
-                              children: [
-                                Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(0, 8, 0, 0),
-                                  child: Icon(
-                                    Icons.phone_rounded,
-                                    color: Colors.black,
-                                    size: 24,
-                                  ),
-                                ),
-                                Text('phone ??'
-                                 // style: TextStyle(
-                                   /* letterSpacing: 0,
-                                    fontFamily: 'Arial',
-                                    fontSize: 18.0,
-                                    fontStyle: FontStyle.normal,
-                                    fontWeight: FontWeight.normal,   
-                                  ),*/
-                                ),
-                              ],
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
+                    ), 
                   ],
                 ),
               ),
+
+              Column(
+                children: [ 
+                  Expanded(
+                    child: Row(
+                      children: [
+                        IconButton(
+                          iconSize: 10,
+                          icon: Image.network(),
+                          onPressed: _onIconPressed,
+                        ),
+                        IconButton(
+                          iconSize: 10,
+                          icon: Image.asset(name),
+                          onPressed: _onIconPressed,
+                        ),
+                      ],
+                    ),
+                  ),
+
+                  Expanded(
+                    child: Row(
+                      children: [
+                        IconButton(
+                          iconSize: 10,
+                          icon: Image.asset(name),
+                          onPressed: _onIconPressed,
+                        ),
+                        IconButton(
+                          iconSize: 10,
+                          icon: Image.asset(name),
+                          onPressed: _onIconPressed,
+                        ),
+                      ],
+                    ),
+                  )
+                ],
+              ),
+
               Opacity(
                 opacity: 0.1,
                 child: Align(
                   alignment: Alignment.center,
                   child: Icon(
-                    Icons.emergency_outlined,
+                    Icons.emoji_events_outlined,
                     color: Colors.blue,
                     size: 300,
                   ),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:project_test1/screens/awardsPage.dart';
 import 'dart:ui' as ui;
 
 import 'package:project_test1/screens/calendarPage.dart';
@@ -189,11 +190,11 @@ class HomePage extends StatelessWidget {
                 color: Colors.blue
               ),
               title: Text('Awards'),
-              onTap: () => _toLoginPage(context),
+              onTap: () => _toAwardsPage(context),
             ),
             ListTile(
               leading: Icon(
-                Icons.key,
+                Icons.shield_outlined,
                 color: Colors.blue
               ),
               title: Text('Privacy'),
@@ -221,12 +222,20 @@ class HomePage extends StatelessWidget {
     Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => ProfilePage()));
   }//_toProfilePage
 
-//NAVIGATION - toLoginPage
+//NAVIGATION - toPrivacyPage
   void _toPrivacyPage(BuildContext context){
     //Pop the drawer first 
     Navigator.pop(context);
     //Then pop the HomePage
     Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => PrivacyPage()));
+  }//_toPrivacyPage
+
+  //NAVIGATION - toAwardsPage
+  void _toAwardsPage(BuildContext context){
+    //Pop the drawer first 
+    Navigator.pop(context);
+    //Then pop the HomePage
+    Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => AwardsPage()));
   }//_toLoginPage
 
 } //HomePage
