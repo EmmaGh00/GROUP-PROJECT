@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors
 import 'package:flutter/material.dart';
 import 'package:project_test1/screens/homePage.dart';
+import 'package:project_test1/screens/SpaAwardsPage.dart';
 
 class AwardsPage extends StatefulWidget { 
   
@@ -66,19 +67,21 @@ class _AwardsPageState extends State<AwardsPage> {
                       children: [
                         IconButton(
                           iconSize: 10,
-                          icon: Image.network(),
-                          onPressed: _onIconPressed,
+                          icon: Image.network('https://www.lafeltrinelli.it/images/3608110316065_0_536_0_75.jpg'),
+                          onPressed: () {
+                            Navigator.push(context, MaterialPageRoute(builder:(context) => SpaAwardsPage()));
+                          },
                         ),
-                        IconButton(
-                          iconSize: 10,
-                          icon: Image.asset(name),
-                          onPressed: _onIconPressed,
-                        ),
+//                        IconButton(
+//                          iconSize: 10,
+//                          icon: Image.asset(name),
+//                          onPressed: _onIconPressed,
+ //                       ),
                       ],
                     ),
                   ),
 
-                  Expanded(
+/*                  Expanded(
                     child: Row(
                       children: [
                         IconButton(
@@ -96,7 +99,7 @@ class _AwardsPageState extends State<AwardsPage> {
                   )
                 ],
               ),
-
+*/
               Opacity(
                 opacity: 0.1,
                 child: Align(
@@ -110,9 +113,20 @@ class _AwardsPageState extends State<AwardsPage> {
               ),
             ],
           ),
+          ],
         ),
-      );
+      ),
+    );
   }
+
+  //NAVIGATION - toSpaAwardsPage
+  void _toAwardsPage(BuildContext context){
+    //Pop the drawer first 
+    Navigator.pop(context);
+    //Then pop the HomePage
+    Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => SpaAwardsPage()));
+  }//_toSpaAwardsPage
+
 
   // NAVIGATION - toHomePage
   void _toHomePage(BuildContext context){
