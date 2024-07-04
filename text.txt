@@ -1,1 +1,10 @@
+<<<<<<< Updated upstream
 hello world
+=======
+hello world
+
+aaa bbb cccc
+
+
+dfgynhumirfvdr
+>>>>>>> Stashed changes
