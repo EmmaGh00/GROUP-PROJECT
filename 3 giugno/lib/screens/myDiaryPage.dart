@@ -1,6 +1,8 @@
 // ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors
-import 'package:flutter/material.dart';
+import 'dart:convert';
 
+import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:project_test1/screens/homePage.dart';
 
 class MyDiaryPage extends StatefulWidget { 
@@ -11,17 +13,53 @@ class MyDiaryPage extends StatefulWidget {
 
 class _MyDiaryPageState extends State<MyDiaryPage> {
   
-  final TextEditingController _controller = TextEditingController();
-  String _displayText = "";
-  
-  void _sendText() {
-    setState() {
-      _displayText = _controller.text;
-      _controller.clear();
-    };
-  }
+  TextEditingController _controller = TextEditingController();
+  List<String> _messages = [];
+
 
   @override
+
+  void initState() {
+    super.initState();
+    _loadMessages();
+  }
+
+   void _loadMessages() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    String? messagesString = prefs.getString('messages');
+    if (messagesString != null) {
+      setState(() {
+        _messages = List<String>.from(json.decode(messagesString));
+      });
+    }
+  }
+
+
+  void _saveMessages() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    prefs.setString('messages', json.encode(_messages));
+  }
+
+  void _sendMessage() {
+    if (_controller.text.isNotEmpty){
+      setState((){
+        _messages.add(_controller.text);
+        _controller.clear();
+        _saveMessages();
+      });
+    }
+  }
+
+  void _clearMessages() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    await prefs.remove('messages');
+    setState(() {
+      _messages.clear();
+    });
+  }
+
+
+
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
@@ -42,33 +80,60 @@ class _MyDiaryPageState extends State<MyDiaryPage> {
         leading: IconButton(
           onPressed: () 
             => _toHomePage(context), icon: Icon(Icons.arrow_back)
-        )
+        ),
+        actions: [
+          IconButton(icon:Icon(Icons.delete),
+          onPressed: _clearMessages,
+          ),
+        ],
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            TextField(
-              controller: _controller,
-              decoration: InputDecoration(
-                labelText: 'Tieni il diario dei tuoi pensieri, sfogati qui.',
-                border: OutlineInputBorder(),
-              )
+
+      body: Column(
+        children: [
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Row(
+              children: [
+                Expanded(
+                  child: TextField(
+                    controller: _controller,
+                    decoration: InputDecoration(
+                      labelText: 'Keep a diary of your thoughts, write down them here.',
+                    ),
+                  ),
+                ),
+                IconButton(
+                  icon: Icon(Icons.send),
+                  onPressed: _sendMessage,
+                ),
+              ],
             ),
-            SizedBox(height:10),
-            ElevatedButton(
-              onPressed: _sendText,
-              child: Text('Invia'),
+          ),
+          Expanded(
+            child: ListView.builder(
+              itemCount: _messages.length,
+              itemBuilder: (context, index) {
+                return ListTile(
+                  title: Text(_messages[index]),
+                );
+              },
             ),
-            SizedBox(height:20),
-            Text(
-              _displayText,
-              style: TextStyle(fontSize:20),
-            )
-          ]
-        )
+          ),
+          Opacity(
+                opacity: 0.1,
+                child: Align(
+                  alignment: Alignment.center,
+                  child: Icon(
+                    Icons.auto_stories_outlined,
+                    color: Colors.blue,
+                    size: 300,
+                  ),
+                ),
+              ),
+        ],
       ),
+
+
     );
   } // Widget Build context
 

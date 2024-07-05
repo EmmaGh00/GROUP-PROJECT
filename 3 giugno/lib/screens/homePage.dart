@@ -187,19 +187,19 @@ class HomePage extends StatelessWidget {
             ),
             ListTile(
               leading: Icon(
-                Icons.logout,
-                color: Colors.blue
-              ),
-              title: Text('Logout'),
-              onTap: () => _toLoginPage(context),
-            ),
-            ListTile(
-              leading: Icon(
                 Icons.star,
                 color: Colors.blue
               ),
               title: Text('Awards'),
               onTap: () => _toAwardsPage(context),
+            ),
+            ListTile(
+              leading: Icon(
+                Icons.logout,
+                color: Colors.blue
+              ),
+              title: Text('Logout'),
+              onTap: () => _toLoginPage(context),
             ),
             ListTile(
               leading: Icon(
@@ -209,6 +209,7 @@ class HomePage extends StatelessWidget {
               title: Text('Privacy'),
               onTap: () => _toPrivacyPage(context),
             ),
+            Spacer(flex:20),
           ],  // children
         ),
       ),

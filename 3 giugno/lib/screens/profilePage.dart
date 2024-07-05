@@ -1,7 +1,8 @@
 // ignore_for_file: prefer_const_constructors
+
 import 'package:flutter/material.dart';
-//import 'package:project_test1/screens/emergencyPage.dart';
 import 'package:project_test1/screens/homePage.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 
 enum Gender {male,female,other}
@@ -13,49 +14,69 @@ class ProfilePage extends StatefulWidget {
 
 class _ProfilePageState extends State<ProfilePage> {
   final _formKey = GlobalKey<FormState>();
-  String username = '';
-  String password = '';
-  String nome = '';
-  String cognome = '';
-  //late DateTime dataNascita;
-  String genere = '';
-  double peso = 0.0;
-  int altezza = 0;
-  String email = '';
-  int numeroTelefono = 0;
-  String domicilio = '';
-  String contattoEmergenza = '';
-        
 
-  void _saveForm() {
-    if (_formKey.currentState!.validate()) {
-      // Salvataggio dei dati nel database o in qualsiasi altro archivio
-      // Qui puoi inserire il codice per salvare i dati
-      print('Saved Data:');
-      print('Username: $username');
-      print('Password: $password');
-      print('Name: $nome');
-      print('Surname: $cognome');
-      //print('Data di nascita: $dataNascita');
-      print('Gender: $genere');
-      print('Weight: $peso');
-      print('Height: $altezza');
-      print('Email: $email');
-      print('Phone Number: $numeroTelefono');
-      print('Address: $domicilio');
-      //print('Emergency Contact: $contattoEmergenza');
-    }
-  }
+
+  TextEditingController _weightController = TextEditingController();
+  TextEditingController _heightController = TextEditingController();
+  TextEditingController _emailController = TextEditingController();
+  TextEditingController _phoneController = TextEditingController();
+  TextEditingController _addressController = TextEditingController();
+  TextEditingController _emergencyController = TextEditingController();
+  
 
   final DateTime _birthdate = DateTime(1990, 5, 15);
   Gender? _selectedGender;
 
   @override
+
+  void initState() {
+    super.initState();
+    _loadProfileData();
+  }
+
+  Future<void> _loadProfileData() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    setState(() {
+      _weightController.text = prefs.getString('weight') ?? '';
+      _heightController.text = prefs.getString('height') ?? '';
+      _emailController.text = prefs.getString('email') ?? '';
+      _phoneController.text = prefs.getString('phone') ?? '';
+      _addressController.text = prefs.getString('address') ?? '';
+      _emergencyController.text = prefs.getString('emergency') ?? '';
+
+    });
+  }
+
+  Future<void> _saveProfileData() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    prefs.setString('weight', _weightController.text);
+    prefs.setString('height', _heightController.text);
+    prefs.setString('email', _emailController.text);
+    prefs.setString('phone', _phoneController.text);
+    prefs.setString('address', _addressController.text);
+    prefs.setString('emergency', _emergencyController.text);
+
+  }
+
+  @override
+  void dispose() {
+    _saveProfileData();
+    _weightController.dispose();
+    _heightController.dispose();
+    _emailController.dispose();
+    _phoneController.dispose();
+    _addressController.dispose();
+    _emergencyController.dispose();
+    super.dispose();
+  }
+
+  // AGGIUNGERE ALTRI CAMPI
+
   Widget build(BuildContext context) {
     
     return Scaffold(
       appBar: AppBar(
-        title: Text('Enter Personal Data',
+        title: Text('Personal Data',
          style: TextStyle(
             fontFamily: 'Outfit',
             color: Colors.blue,
@@ -78,6 +99,8 @@ class _ProfilePageState extends State<ProfilePage> {
               
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
+                //DATI FISSI
+
                 // USERNAME
                 Text('Username: ',
                   style: TextStyle(
@@ -201,6 +224,8 @@ class _ProfilePageState extends State<ProfilePage> {
                 ),
                 SizedBox(height: 15.0),
                
+               // DATI MODIFICABILI
+
                 //GENDER
                 Text('Genere:',
                   style: TextStyle(
@@ -241,6 +266,7 @@ class _ProfilePageState extends State<ProfilePage> {
 
                 //WEIGHT
                 TextFormField(
+                  controller: _weightController,
                   decoration: InputDecoration(labelText: 'Weight'),
                   //readOnly: true, (non andava quando c'era questo comando)
                   //initialValue: peso,
@@ -254,6 +280,7 @@ class _ProfilePageState extends State<ProfilePage> {
 
                 //HEIGHT
                 TextFormField(
+                  controller: _heightController,
                   decoration: InputDecoration(labelText: 'Height'),
                   //readOnly: true, (non andava quando c'era questo comando)
                   //initialValue: height,
@@ -267,9 +294,10 @@ class _ProfilePageState extends State<ProfilePage> {
 
                 //MAIL
                 TextFormField(
+                  controller: _emailController,
                   decoration: InputDecoration(labelText: 'eMail'),
                   //readOnly: true, (non andava quando c'era questo comando)
-                  initialValue: email,
+                  //initialValue: email,
                   validator: (value) {
                     if (value!.isEmpty) {
                       return 'Enter email';
@@ -280,6 +308,7 @@ class _ProfilePageState extends State<ProfilePage> {
 
                 //TELEFONO
                 TextFormField(
+                  controller: _phoneController,
                   decoration: InputDecoration(labelText: 'Phone Number'),
                   //readOnly: true, (non andava quando c'era questo comando)
                   //initialValue: numeroTelefono,
@@ -293,9 +322,10 @@ class _ProfilePageState extends State<ProfilePage> {
 
                 //DOMICILIO
                 TextFormField(
+                  controller: _addressController,
                   decoration: InputDecoration(labelText: 'Address'),
                   //readOnly: true, (non andava quando c'era questo comando)
-                  initialValue: domicilio,
+                  //initialValue: domicilio,
                   validator: (value) {
                     if (value!.isEmpty) {
                       return 'Enter address';
@@ -306,9 +336,10 @@ class _ProfilePageState extends State<ProfilePage> {
 
                 //CONTATTO EMERGENZA
                 TextFormField(
+                  controller: _emergencyController,
                   decoration: InputDecoration(labelText: 'Emergency phone number contact'),
                   //readOnly: true, (non andava quando c'era questo comando)
-                  initialValue: contattoEmergenza,
+                  //initialValue: contattoEmergenza,
                   validator: (value) {
                     if (value!.isEmpty) {
                       return 'Enter emergency phone number';
@@ -327,7 +358,7 @@ class _ProfilePageState extends State<ProfilePage> {
                 // e di gestire i cambiamenti con onChanged (se necessario)
                 SizedBox(height: 20),
                 ElevatedButton(
-                  onPressed: _saveForm,
+                  onPressed: _saveProfileData,
                   child: Text('Save'),
                 ),
               ],
