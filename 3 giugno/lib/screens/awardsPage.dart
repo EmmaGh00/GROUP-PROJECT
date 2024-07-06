@@ -1,7 +1,27 @@
 // ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors
 import 'package:flutter/material.dart';
+import 'package:project_test1/screens/cinemaAward.dart';
+import 'package:project_test1/screens/fitnessAward.dart';
 import 'package:project_test1/screens/homePage.dart';
-import 'package:project_test1/screens/SpaAwardsPage.dart';
+import 'package:project_test1/screens/parkAward.dart';
+import 'package:project_test1/screens/smartboxAward.dart';
+
+// DA FARE NELLE SINGOLE PAGINE CREATE (cinema, fitness, park, smartbox)
+// IDEA: SCANSIONA IL QR-CODE per scaricare il pdf
+// con lo sconto da poter utilizzare direttamente in 'negozio'
+// da fare: creare QR CODE con pdf collegato, creare pdf con scritto 'Hai buono sconto in xyz'
+// caricare QR CODE come immagine nella pagina corrispettiva
+
+
+// Impostare un if prima di ONTAP su ogni GestureDetector, in modo che:
+// if score> tot punti (specifici per ogni premio), allora puoi premere ONTAP
+// else mostra una scritta 'Non hai abbastanza punti per questo premio'
+
+// mettere lo score come variabile in shared preferences e mostrarlo in 'Your score is: ...'
+
+//sistemare la grafica di come si vedono la scritta Your score e le immagini sotto
+
+
 
 class AwardsPage extends StatefulWidget { 
   
@@ -34,7 +54,8 @@ class _AwardsPageState extends State<AwardsPage> {
             => _toHomePage(context), icon: Icon(Icons.arrow_back)
         )
       ),
-      body: SafeArea(
+
+     body: SafeArea(
         top: true,
         child: Stack(
           children: [
@@ -64,42 +85,66 @@ class _AwardsPageState extends State<AwardsPage> {
                 children: [ 
                   Expanded(
                     child: Row(
-                      children: [
-                        IconButton(
-                          iconSize: 10,
-                          icon: Image.network('https://www.lafeltrinelli.it/images/3608110316065_0_536_0_75.jpg'),
-                          onPressed: () {
-                            Navigator.push(context, MaterialPageRoute(builder:(context) => SpaAwardsPage()));
+
+                    children: [
+                        GestureDetector(
+                          onTap:() {
+                             Navigator.push(context, MaterialPageRoute(builder:(context) => cinemaAward()));
                           },
+                          child: Image.network(
+                            'https://media.istockphoto.com/id/921532564/it/vettoriale/biglietto-del-cinema-isolato-su-sfondo-bianco.jpg?s=612x612&w=0&k=20&c=Ro8v0hq4YnzJZ-zkr-yc8-jbjE1btxYnbtKpzevwgZA=',
+                            width: 200,
+                            height: 200,
+                          )
                         ),
-//                        IconButton(
-//                          iconSize: 10,
-//                          icon: Image.asset(name),
-//                          onPressed: _onIconPressed,
- //                       ),
+
+                        GestureDetector(
+                          onTap:() {
+                             Navigator.push(context, MaterialPageRoute(builder:(context) => fitnessAward()));
+                          },
+                          child: Image.network(
+                            'https://www.earlybirdsco.nz/cdn/shop/files/fitness-gift-box-nz.png?v=1714337481',
+                            width: 200,
+                            height: 200,
+                          )
+                        ),
                       ],
                     ),
                   ),
-
-/*                  Expanded(
+                  
+                  
+                  Expanded(
                     child: Row(
-                      children: [
-                        IconButton(
-                          iconSize: 10,
-                          icon: Image.asset(name),
-                          onPressed: _onIconPressed,
+
+                    children: [
+                        GestureDetector(
+                          onTap:() {
+                             Navigator.push(context, MaterialPageRoute(builder:(context) => parkAward()));
+                          },
+                          child: Image.network(
+                            'https://media-aws.ticknbox.com/catalog/product/cache/bd5a6537db6ba59dc81f23b0e9d8fff0/t/n/tnb_pt09_mirabilandia_face.jpg',
+                            width: 200,
+                            height: 200,
+                          )
                         ),
-                        IconButton(
-                          iconSize: 10,
-                          icon: Image.asset(name),
-                          onPressed: _onIconPressed,
+
+                        GestureDetector(
+                          onTap:() {
+                             Navigator.push(context, MaterialPageRoute(builder:(context) => smartboxAward()));
+                          },
+                          child: Image.network(
+                            'https://media.smartbox.com/pim/640x480/filters:format(webp)/1000002814049820419092.jpg',
+                            width: 200,
+                            height: 200,
+                          )
                         ),
                       ],
                     ),
-                  )
-                ],
+                  ),
+                
+                ], //children
               ),
-*/
+
               Opacity(
                 opacity: 0.1,
                 child: Align(
@@ -113,19 +158,44 @@ class _AwardsPageState extends State<AwardsPage> {
               ),
             ],
           ),
-          ],
         ),
-      ),
-    );
+      );
   }
 
-  //NAVIGATION - toSpaAwardsPage
-  void _toAwardsPage(BuildContext context){
+
+  //NAVIGATION - toCinemaAward
+  void _toCinemaAward(BuildContext context){
     //Pop the drawer first 
     Navigator.pop(context);
     //Then pop the HomePage
-    Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => SpaAwardsPage()));
-  }//_toSpaAwardsPage
+    Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => cinemaAward()));
+  }//_toCinemaAward
+
+  //NAVIGATION - toFitnessAward
+  void _toFitnessAward(BuildContext context){
+    //Pop the drawer first 
+    Navigator.pop(context);
+    //Then pop the HomePage
+    Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => fitnessAward()));
+  }//_toCinemaAward
+
+
+  //NAVIGATION - toParkAward
+  void _toParkAward(BuildContext context){
+    //Pop the drawer first 
+    Navigator.pop(context);
+    //Then pop the HomePage
+    Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => parkAward()));
+  }//_toParkAward
+
+  //NAVIGATION - toSmartboxAward
+  void _toSmartboxAward(BuildContext context){
+    //Pop the drawer first 
+    Navigator.pop(context);
+    //Then pop the HomePage
+    Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => smartboxAward()));
+  }//_toSmartboxAward
+
 
 
   // NAVIGATION - toHomePage
@@ -136,5 +206,6 @@ class _AwardsPageState extends State<AwardsPage> {
     Navigator.pop(context);
     Navigator.push(context, MaterialPageRoute(builder: (_) => HomePage()));
   }
+
 }
 

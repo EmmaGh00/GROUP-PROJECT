@@ -3,13 +3,13 @@ import 'package:flutter/material.dart';
 import 'package:project_test1/screens/awardsPage.dart';
 
 
-class SpaAwardsPage extends StatefulWidget { 
+class parkAward extends StatefulWidget { 
   
   @override
-  _SpaAwardsPageState createState() => _SpaAwardsPageState();
+  _parkAwardState createState() => _parkAwardState();
 } //LoginPage
 
-class _SpaAwardsPageState extends State<SpaAwardsPage> {
+class _parkAwardState extends State<parkAward> {
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +17,7 @@ class _SpaAwardsPageState extends State<SpaAwardsPage> {
       backgroundColor: Colors.white,
        // backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
       appBar: AppBar(    
-        title: Text('SPA Awards',
+        title: Text('MIRABILANDIA Awards',
           style: TextStyle(
             fontFamily: 'Outfit',
             fontStyle: FontStyle.normal,
