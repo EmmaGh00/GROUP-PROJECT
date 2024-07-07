@@ -1,5 +1,6 @@
 // ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors
 import 'package:flutter/material.dart';
+//import 'package:shared_preferences/shared_preferences.dart';
 import 'package:project_test1/screens/cinemaAward.dart';
 import 'package:project_test1/screens/fitnessAward.dart';
 import 'package:project_test1/screens/homePage.dart';
@@ -19,7 +20,7 @@ import 'package:project_test1/screens/smartboxAward.dart';
 
 // mettere lo score come variabile in shared preferences e mostrarlo in 'Your score is: ...'
 
-//sistemare la grafica di come si vedono la scritta Your score e le immagini sotto
+// sistemare la grafica di come si vedono la scritta Your score e le immagini sotto
 
 
 
@@ -30,6 +31,28 @@ class AwardsPage extends StatefulWidget {
 } //LoginPage
 
 class _AwardsPageState extends State<AwardsPage> {
+  
+  /*
+  String?_sharedScore = '';
+
+  @override
+  void initState(){
+    super.initState();
+    _loadScore();
+  }
+
+  Future<void> _loadScore() async {
+    final score = await SharedPreferences.getInstance();
+    setState(() {
+      _sharedScore = score.getString('sharedScore') ?? 'Valore iniziale';
+    });
+  }
+
+  Future<void> _saveScore(String value) async {
+    final score = await SharedPreferences.getInstance();
+    await score.setString('sharedScore', value);
+  }
+  */
 
   @override
   Widget build(BuildContext context) {
@@ -76,7 +99,7 @@ class _AwardsPageState extends State<AwardsPage> {
                             letterSpacing: 0.2,
                         ),
                       ),
-                    ), 
+                    ),
                   ],
                 ),
               ),
@@ -209,3 +232,15 @@ class _AwardsPageState extends State<AwardsPage> {
 
 }
 
+/*
+Future<void> saveScore(String key,String value) async {
+  final score = await SharedPreferences.getInstance();
+  await score.setString(key, value);
+}
+
+Future<String?> loadScore(String key) async {
+  final score = await SharedPreferences.getInstance();
+  return score.getString(key);
+}
+
+*/

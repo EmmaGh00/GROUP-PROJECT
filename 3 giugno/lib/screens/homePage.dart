@@ -3,12 +3,15 @@ import 'package:project_test1/screens/awardsPage.dart';
 import 'dart:ui' as ui;
 
 import 'package:project_test1/screens/calendarPage.dart';
+import 'package:project_test1/screens/dailyQuiz.dart';
 import 'package:project_test1/screens/emergencyPage.dart';
 import 'package:project_test1/screens/loginPage.dart';
 import 'package:project_test1/screens/monitoringPage.dart';
 import 'package:project_test1/screens/myDiaryPage.dart';
 import 'package:project_test1/screens/profilePage.dart';
 import 'package:project_test1/screens/privacyPage.dart';
+import 'package:project_test1/screens/todayPage.dart';
+
 
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -39,6 +42,7 @@ class HomePage extends StatelessWidget {
           decoration: BoxDecoration(borderRadius: BorderRadius.circular(10)),
           child: Column(
             children:[
+
               // PRIMA RIGA
               Expanded(
                 child: Row(
@@ -148,6 +152,71 @@ class HomePage extends StatelessWidget {
                   ],                  
                 ),
               ),
+
+              Expanded(
+                child: Text('BELIEVE IN YOURSELF!',
+                  style: TextStyle(
+                    fontSize: 40,
+                    foreground: Paint()
+                      ..shader = ui.Gradient.linear(
+                        const Offset(0, 20),
+                        const Offset(250, 20),
+                        <Color> [
+                          Color.fromARGB(255, 33, 40, 243).withOpacity(0.5),
+                          Color.fromARGB(255, 3, 191, 248).withOpacity(0.5),
+                        ]
+                      )
+                  ),
+                )
+              ),
+
+              //TERZA RIGA
+              Expanded(
+                child: Row(
+                  children: [
+                    //TODAY SCORE
+                    ElevatedButton.icon(
+                      icon: Icon(
+                        Icons.today, 
+                        color:Colors.blue, 
+                        size:50.0,
+                      ),
+                      label: Text('Today',
+                        style: TextStyle(
+                          color: Colors.blue,
+                          fontSize: 16,
+                          fontStyle: FontStyle.normal,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      onPressed: (){
+                        Navigator.push (context, MaterialPageRoute(builder:(context) => Today()));
+                      },
+                    ),
+
+                    //DAILY QUIZ
+                    ElevatedButton.icon(
+                      icon: Icon(
+                        Icons.quiz_outlined, 
+                        color:Colors.blue, 
+                        size:50.0,
+                      ),
+                      label: Text('Daily Quiz',
+                        style: TextStyle(
+                          color: Colors.blue,
+                          fontSize: 16,
+                          fontStyle: FontStyle.normal,
+                          fontWeight: FontWeight.bold,
+                        )
+                      ),
+                      onPressed: () {
+                        Navigator.push (context, MaterialPageRoute(builder:(context) => DailyQuiz()));
+                      },
+                    ),
+                  ],                  
+                ),
+              ),
+
             ], //children
           ),
         ),
