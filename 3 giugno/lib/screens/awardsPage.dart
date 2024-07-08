@@ -7,12 +7,6 @@ import 'package:project_test1/screens/homePage.dart';
 import 'package:project_test1/screens/parkAward.dart';
 import 'package:project_test1/screens/smartboxAward.dart';
 
-// DA FARE NELLE SINGOLE PAGINE CREATE (cinema, fitness, park, smartbox)
-// IDEA: SCANSIONA IL QR-CODE per scaricare il pdf
-// con lo sconto da poter utilizzare direttamente in 'negozio'
-// da fare: creare QR CODE con pdf collegato, creare pdf con scritto 'Hai buono sconto in xyz'
-// caricare QR CODE come immagine nella pagina corrispettiva
-
 
 // Impostare un if prima di ONTAP su ogni GestureDetector, in modo che:
 // if score> tot punti (specifici per ogni premio), allora puoi premere ONTAP
@@ -31,28 +25,6 @@ class AwardsPage extends StatefulWidget {
 } //LoginPage
 
 class _AwardsPageState extends State<AwardsPage> {
-  
-  /*
-  String?_sharedScore = '';
-
-  @override
-  void initState(){
-    super.initState();
-    _loadScore();
-  }
-
-  Future<void> _loadScore() async {
-    final score = await SharedPreferences.getInstance();
-    setState(() {
-      _sharedScore = score.getString('sharedScore') ?? 'Valore iniziale';
-    });
-  }
-
-  Future<void> _saveScore(String value) async {
-    final score = await SharedPreferences.getInstance();
-    await score.setString('sharedScore', value);
-  }
-  */
 
   @override
   Widget build(BuildContext context) {

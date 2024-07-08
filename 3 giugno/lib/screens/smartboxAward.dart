@@ -39,8 +39,8 @@ class _smartboxAwardState extends State<smartboxAward> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Text('Obtain your gift!'),
-            SizedBox(height:20),
-            Image.asset('assets/images/SmartboxQRCODE.jpeg'),          
+            SizedBox(height:10),
+            Image.asset('assets/images/SmartboxQRCODE.jpeg', width:200,height:200),
           ],
         )
       )

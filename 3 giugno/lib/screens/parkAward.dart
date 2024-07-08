@@ -34,6 +34,16 @@ class _parkAwardState extends State<parkAward> {
             => _toHomePage(context), icon: Icon(Icons.arrow_back)
         )
       ),
+      body: Center(
+        child:Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            Text('Obtain your gift!'),
+            SizedBox(height:10),
+            Image.asset('assets/images/mirabilandiaQRCODE.jpeg', width:200,height:200),
+          ],
+        )
+      )
     );
   }
 
