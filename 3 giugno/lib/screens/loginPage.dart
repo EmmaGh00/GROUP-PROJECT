@@ -84,12 +84,12 @@ class _LoginPageState extends State<LoginPage> {
                     ),
                     onPressed: () async { 
                       if(userController.text == 'fjUj9CGlJ5' && passwordController.text == '12345678!'){
-                        /*final result = await ImpactService.authorize();
+                        final result = await ImpactService.authorize();
                         final message =
                           result == 200 ? 'Request successful' : 'Request failed';
                         ScaffoldMessenger.of(context)
                           ..removeCurrentSnackBar()
-                          ..showSnackBar(SnackBar(content: Text(message))); */
+                          ..showSnackBar(SnackBar(content: Text(message)));
                         Navigator.pushReplacement(context, MaterialPageRoute(builder: (_) => HomePage()));
                       }
                       else{

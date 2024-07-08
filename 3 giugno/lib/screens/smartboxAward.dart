@@ -34,6 +34,16 @@ class _smartboxAwardState extends State<smartboxAward> {
             => _toHomePage(context), icon: Icon(Icons.arrow_back)
         )
       ),
+      body: Center(
+        child:Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            Text('Obtain your gift!'),
+            SizedBox(height:20),
+            Image.asset('assets/images/SmartboxQRCODE.jpeg'),          
+          ],
+        )
+      )
     );
   }
 
