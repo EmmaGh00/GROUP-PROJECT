@@ -8,9 +8,9 @@ class Restdata {
 
   Restdata({required this.time, required this.value});
 
-  Restdata.fromJson(String date, Map<String, dynamic> json) : //is a costroctor with a name, 
-      time = DateFormat('yyyy-MM-dd HH:mm:ss').parse('$date ${json["time"]}'),
-      value = double.parse('${json["value"]}');  
+  Restdata.fromJson(String date, double value) : //is a costroctor with a name, 
+      time = DateFormat('yyyy-MM-dd').parse('$date'),
+      value = value;  
 
   @override
   String toString() {

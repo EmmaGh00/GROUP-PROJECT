@@ -20,7 +20,7 @@ class _DailyQuizState extends State<DailyQuiz> {
       backgroundColor: Colors.white,
        // backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
       appBar: AppBar(    
-        title: Text('Emergency',
+        title: Text('Daily Quiz',
           style: TextStyle(
             fontFamily: 'Outfit',
             fontStyle: FontStyle.normal,
@@ -50,7 +50,7 @@ class _DailyQuizState extends State<DailyQuiz> {
                 child: Align(
                   alignment: Alignment.center,
                   child: Icon(
-                    Icons.emergency_outlined,
+                    Icons.quiz_outlined,
                     color: Colors.blue,
                     size: 300,
                   ),

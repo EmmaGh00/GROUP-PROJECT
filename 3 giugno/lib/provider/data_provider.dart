@@ -15,10 +15,10 @@ class DataProvider extends ChangeNotifier {
 
     //if OK parse the response adding all the elements to the list, otherwise do nothing
     if (data != null) {
-      for (var i = 0; i < data['date']('data').length; i++) {
+      //for (var i = 0; i < data['data']('data').length; i++) {
         restData.add(
-           Restdata.fromJson(data['date']['data'], data['date']['data'][i]));
-      } //for
+           Restdata.fromJson(data['data']['date'], data['data']['data']['value']));
+      //} //for
 
       //remember to notify the listeners
       notifyListeners();

@@ -80,7 +80,6 @@ class _AwardsPageState extends State<AwardsPage> {
                 children: [ 
                   Expanded(
                     child: Row(
-
                     children: [
                         GestureDetector(
                           onTap:() {
@@ -88,8 +87,8 @@ class _AwardsPageState extends State<AwardsPage> {
                           },
                           child: Image.network(
                             'https://media.istockphoto.com/id/921532564/it/vettoriale/biglietto-del-cinema-isolato-su-sfondo-bianco.jpg?s=612x612&w=0&k=20&c=Ro8v0hq4YnzJZ-zkr-yc8-jbjE1btxYnbtKpzevwgZA=',
-                            width: 200,
-                            height: 200,
+                            //width: 50,
+                            //height: 50,
                           )
                         ),
 
@@ -99,8 +98,8 @@ class _AwardsPageState extends State<AwardsPage> {
                           },
                           child: Image.network(
                             'https://www.earlybirdsco.nz/cdn/shop/files/fitness-gift-box-nz.png?v=1714337481',
-                            width: 200,
-                            height: 200,
+                            width: 50,
+                            height: 50,
                           )
                         ),
                       ],
@@ -118,8 +117,8 @@ class _AwardsPageState extends State<AwardsPage> {
                           },
                           child: Image.network(
                             'https://media-aws.ticknbox.com/catalog/product/cache/bd5a6537db6ba59dc81f23b0e9d8fff0/t/n/tnb_pt09_mirabilandia_face.jpg',
-                            width: 200,
-                            height: 200,
+                            width: 50,
+                            height: 50,
                           )
                         ),
 
@@ -129,8 +128,8 @@ class _AwardsPageState extends State<AwardsPage> {
                           },
                           child: Image.network(
                             'https://media.smartbox.com/pim/640x480/filters:format(webp)/1000002814049820419092.jpg',
-                            width: 200,
-                            height: 200,
+                            width: 50,
+                            height: 50,
                           )
                         ),
                       ],

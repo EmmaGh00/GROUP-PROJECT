@@ -37,7 +37,7 @@ class HomePage extends StatelessWidget {
       ),
       body: Center(
         child:Container(
-          height: 200,
+          height: 400,
           width: 350,
           decoration: BoxDecoration(borderRadius: BorderRadius.circular(10)),
           child: Column(
@@ -154,7 +154,7 @@ class HomePage extends StatelessWidget {
               ),
 
               Expanded(
-                child: Text('BELIEVE IN YOURSELF!',
+                child: Text('BELIEVE IN YOU!',
                   style: TextStyle(
                     fontSize: 40,
                     foreground: Paint()
