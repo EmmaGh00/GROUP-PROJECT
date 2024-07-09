@@ -91,12 +91,11 @@ class _LoginPageState extends State<LoginPage> {
                           ..removeCurrentSnackBar()
                           ..showSnackBar(SnackBar(content: Text(message)));
                         Navigator.pushReplacement(context, MaterialPageRoute(builder: (_) => HomePage()));
-                      }
-                      else{
+                      }else{
                         ScaffoldMessenger.of(context)
                           ..removeCurrentSnackBar()
                           ..showSnackBar(SnackBar(content: Text('Wrong username/password. Try again'))); //ALLERT
-                      } //if */
+                      } //if
                     }, //onPressed
                   ),
                 ], //children

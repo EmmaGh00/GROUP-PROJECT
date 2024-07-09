@@ -46,13 +46,14 @@ class HomePage extends StatelessWidget {
               // PRIMA RIGA
               Expanded(
                 child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                    //MONITORING 
                    ElevatedButton.icon(
                       icon: Icon(
                         Icons.monitor_heart_outlined, 
                         color:Colors.blue, 
-                        size:50.0,
+                        size: 50.0,
                       ),
                       label: Text('Monitoring',
                         style: TextStyle(
@@ -66,12 +67,13 @@ class HomePage extends StatelessWidget {
                         Navigator.push(context, MaterialPageRoute(builder:(context) => Monitoring()));
                       },
                     ),
+
                     //CALENDAR
                     ElevatedButton.icon(
                       icon: Icon(
                         Icons.calendar_month, 
                         color:Colors.blue,
-                        size:50.0,
+                        size: 50.0,
                       ),
                       label: Text('Calendar',
                         style: TextStyle(
@@ -110,6 +112,7 @@ class HomePage extends StatelessWidget {
               // SECONDA RIGA
               Expanded(
                 child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     //MY DIARY
                     ElevatedButton.icon(
@@ -130,12 +133,13 @@ class HomePage extends StatelessWidget {
                         Navigator.push (context, MaterialPageRoute(builder:(context) => MyDiaryPage()));
                       },
                     ),
+
                     //EMERGENCY
                     ElevatedButton.icon(
                       icon: Icon(
                         Icons.emergency_outlined, 
                         color:Colors.blue, 
-                        size:50.0,
+                        size: 50.0,
                       ),
                       label: Text('Emergency',
                         style: TextStyle(
@@ -173,6 +177,7 @@ class HomePage extends StatelessWidget {
               //TERZA RIGA
               Expanded(
                 child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     //TODAY SCORE
                     ElevatedButton.icon(
@@ -216,7 +221,6 @@ class HomePage extends StatelessWidget {
                   ],                  
                 ),
               ),
-
             ], //children
           ),
         ),
