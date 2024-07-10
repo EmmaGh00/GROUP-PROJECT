@@ -34,6 +34,7 @@ class _TodayPageState extends State<TodayPage> {
   ];
 
   void answerQuestion(bool userAnswer) {
+    
     if (questions[currentQuestionIndex].isTrue == userAnswer) {
       Provider.of<ScoreModel>(context, listen: false).increment10Score();
 
@@ -47,7 +48,9 @@ class _TodayPageState extends State<TodayPage> {
 
     } else {
       Provider.of<ScoreModel>(context, listen: false).decrement5Score(); //decrement di 5 punti per la sincerità
-    }
+    } 
+    Navigator.push(context, MaterialPageRoute(builder: (_) => HomePage()));
+
   }
 
   @override
@@ -84,7 +87,7 @@ class _TodayPageState extends State<TodayPage> {
                     QuizQuestion(
                       question: questions[currentQuestionIndex],
                       answerQuestion: answerQuestion,
-                    ),
+                    ), 
                     
                     /*
                     Text('Punteggio: ${Provider.of<ScoreModel>(context).score}'),
@@ -152,13 +155,15 @@ class QuizQuestion extends StatelessWidget {
           ),
           SizedBox(height: 20),
           ElevatedButton(
-            onPressed: () => answerQuestion(true),
-            child: Text('True'),
+            onPressed: ()
+            => answerQuestion(true),
+
+            child: Text('Yes'),
           ),
           SizedBox(height: 10),
           ElevatedButton(
             onPressed: () => answerQuestion(false),
-            child: Text('False'),
+            child: Text('No'),
              ),
         ],
       )

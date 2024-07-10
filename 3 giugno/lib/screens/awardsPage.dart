@@ -1,11 +1,13 @@
 // ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors
 import 'package:flutter/material.dart';
+import 'package:project_test1/models/score.dart';
 //import 'package:shared_preferences/shared_preferences.dart';
 import 'package:project_test1/screens/cinemaAward.dart';
 import 'package:project_test1/screens/fitnessAward.dart';
 import 'package:project_test1/screens/homePage.dart';
 import 'package:project_test1/screens/parkAward.dart';
 import 'package:project_test1/screens/smartboxAward.dart';
+import 'package:provider/provider.dart';
 
 
 // Impostare un if prima di ONTAP su ogni GestureDetector, in modo che:
@@ -83,6 +85,13 @@ class _AwardsPageState extends State<AwardsPage> {
                     children: [
                         GestureDetector(
                           onTap:() {
+                            /*
+                            if (({Provider.of<ScoreModel>(context).score}) > 150) {
+                              Navigator.push(context, MaterialPageRoute(builder:(context) => cinemaAward()));
+                            } else {
+                              Text('Non hai abbastanza punti per accedere al premio. Punti necessari: 150');
+                            }
+                            */
                              Navigator.push(context, MaterialPageRoute(builder:(context) => cinemaAward()));
                           },
                           child: Image.network(
@@ -113,14 +122,16 @@ class _AwardsPageState extends State<AwardsPage> {
                     children: [
                         GestureDetector(
                           onTap:() {
-                             Navigator.push(context, MaterialPageRoute(builder:(context) => parkAward()));
+                            Navigator.push(context, MaterialPageRoute(builder:(context) => parkAward()));
                           },
                           child: Image.network(
                             'https://media-aws.ticknbox.com/catalog/product/cache/bd5a6537db6ba59dc81f23b0e9d8fff0/t/n/tnb_pt09_mirabilandia_face.jpg',
                             width: 200,
                             height: 200,
-                          )
+                          ),
+                          
                         ),
+                      
 
                         GestureDetector(
                           onTap:() {
