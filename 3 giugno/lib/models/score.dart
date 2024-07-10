@@ -28,6 +28,25 @@ class ScoreModel extends ChangeNotifier {
     notifyListeners();
   }
 
+  void increment5Score() {
+    _score +5;
+    _saveScore();
+    notifyListeners();
+  }
+
+  void increment10Score() {
+    _score +10;
+    _saveScore();
+    notifyListeners();
+  }
+
+  void decrement5Score() {
+    _score -5;
+    _saveScore();
+    notifyListeners();
+  }
+
+
   void resetScore() {
     _score = 0;
     _saveScore();

@@ -179,66 +179,6 @@ class _EmergencyState extends State<Emergency> {
                         ],
                       ),
                     ),
-
-                    // PERSONAL NUMBER
-                    Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(2, 20, 0, 60),
-                      child: Column(
-                        mainAxisSize: MainAxisSize.max,
-                        children: [
-                          Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(0, 0, 8, 0),
-                            child: Row(
-                              mainAxisSize: MainAxisSize.max,
-                              children: [
-                                Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(0, 8, 0, 0),
-                                  child: Icon(
-                                    Icons.person_rounded,
-                                    color: Colors.black,
-                                    size: 24,
-                                  ),
-                                ),
-                                Text('PRIVATE EMERGENCY CONTACT',
-                                  style: TextStyle(
-                                    letterSpacing: 0.2,
-                                    fontFamily: 'Arial',
-                                    fontSize: 17.0,
-                                    fontStyle: FontStyle.normal,
-                                    fontWeight: FontWeight.normal,
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                          Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(0, 0, 8, 20),
-                            child: Row(
-                              mainAxisSize: MainAxisSize.max,
-                              children: [
-                                Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(0, 8, 0, 0),
-                                  child: Icon(
-                                    Icons.phone_rounded,
-                                    color: Colors.black,
-                                    size: 24,
-                                  ),
-                                ),
-                                Text('phone ??'
-                                 // style: TextStyle(
-                                   /* letterSpacing: 0,
-                                    fontFamily: 'Arial',
-                                    fontSize: 18.0,
-                                    fontStyle: FontStyle.normal,
-                                    fontWeight: FontWeight.normal,   
-                                  ),*/
-                                ),
-                              ],
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
                   ],
                 ),
               ),

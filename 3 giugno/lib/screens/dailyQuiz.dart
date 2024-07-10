@@ -1,26 +1,55 @@
-// ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors
 import 'package:flutter/material.dart';
-
+import 'package:project_test1/models/score.dart';
 import 'package:project_test1/screens/homePage.dart';
+import 'package:provider/provider.dart';
 
-class DailyQuiz extends StatefulWidget { 
-  
+void main() {
+  runApp(MyApp());
+}
+
+class MyApp extends StatelessWidget {
   @override
-  _DailyQuizState createState() => _DailyQuizState();
-} //LoginPage
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: QuizPage(),
+    );
+  }
+}
 
-class _DailyQuizState extends State<DailyQuiz> {
-  //final String contattoEmergenza;
+class QuizPage extends StatefulWidget {
+  @override
+  _QuizPageState createState() => _QuizPageState();
+}
 
-//Emergency(this.contattoEmergenza);
+class _QuizPageState extends State<QuizPage> {
+  int currentQuestionIndex = 0;
+  int sus = 0;
+
+ final List<Question> questions = [
+    Question(questionText: "Drinking increases the risk of heart attack", isTrue: true),
+    Question(questionText: "Cocaine promotes hair growth", isTrue: false),
+    Question(questionText: "Alcohol warms you up", isTrue: false),
+    Question(questionText: "Alcohol improves sexual performance", isTrue: false),
+    Question(questionText: "By drinking the same amount of alcohol, women get drunk faster than men", isTrue: true),
+    Question(questionText:"Red wine is good for the blood", isTrue:false),
+    // Aggiungi altre domande...
+  ];
+
+  void answerQuestion(bool userAnswer) {
+    if (questions[currentQuestionIndex].isTrue == userAnswer) {
+      sus++;
+      Provider.of<ScoreModel>(context, listen: false).incrementScore();
+    }
+    setState(() {
+      currentQuestionIndex++;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
-       // backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
-      appBar: AppBar(    
-        title: Text('Daily Quiz',
+      appBar: AppBar(
+        title: Text('Daily quiz',
           style: TextStyle(
             fontFamily: 'Outfit',
             fontStyle: FontStyle.normal,
@@ -37,32 +66,109 @@ class _DailyQuizState extends State<DailyQuiz> {
             => _toHomePage(context), icon: Icon(Icons.arrow_back)
         )
       ),
-      body: SafeArea(
-        top: true,
-        child: Stack(
-          children: [
+      body: currentQuestionIndex < questions.length
+          ? QuizQuestion(
+              question: questions[currentQuestionIndex],
+              answerQuestion: answerQuestion,
+            )
+          : QuizResult(sus: sus, totalQuestions: questions.length),
+    );
+  }
+}
+
+class Question {
+  final String questionText;
+  final bool isTrue;
+
+  Question({required this.questionText, required this.isTrue});
+}
 
 
+class QuizQuestion extends StatelessWidget {
+  final Question question;
+  final Function(bool) answerQuestion;
 
+  QuizQuestion({required this.question, required this.answerQuestion});
 
-              Opacity(
-                opacity: 0.1,
-                child: Align(
-                  alignment: Alignment.center,
-                  child: Icon(
-                    Icons.quiz_outlined,
+  
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.all(16.0),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Text(
+            question.questionText,
+            style: TextStyle(fontSize: 24),
+            textAlign: TextAlign.center,
+          ),
+          SizedBox(height: 20),
+          ElevatedButton(
+            onPressed: () => answerQuestion(true),
+            child: Text('True'),
+          ),
+          SizedBox(height: 10),
+          ElevatedButton(
+            onPressed: () => answerQuestion(false),
+            child: Text('False'),
+             ),
+        ],
+      )
+      
+     
+    );
+    
+  }
+}
+
+class QuizResult extends StatelessWidget {
+  final int sus;
+  final int totalQuestions;
+
+  QuizResult({required this.sus, required this.totalQuestions});
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Text(
+            'End!',
+            style: TextStyle(fontSize: 24),
+          ),
+          Text(
+            'Your score is $sus/$totalQuestions',
+            style: TextStyle(fontSize: 20),
+          ),
+          SizedBox(height: 20),
+          ElevatedButton(
+            onPressed: () {
+              // Riavvia il quiz
+              Navigator.of(context).pushReplacement(
+                MaterialPageRoute(builder: (context) => QuizPage()),
+              );
+            },
+            child: Text('Restart'),
+          ),
+            Opacity(
+              opacity: 0.1,
+              child: Align(
+                alignment: Alignment.center,
+                child: Icon(
+                  Icons.quiz_outlined,
                     color: Colors.blue,
-                    size: 300,
+                    size: 150,
                   ),
                 ),
-              ),
-            ],
-          ),
-        ),
-      );
+            ),
+        ],
+      ),
+    );
   }
+}
 
-  // NAVIGATION - toHomePage
+// NAVIGATION - toHomePage
   void _toHomePage(BuildContext context){
     //Pop the drawer first 
     //Navigator.pop(context);
@@ -70,5 +176,3 @@ class _DailyQuizState extends State<DailyQuiz> {
     Navigator.pop(context);
     Navigator.push(context, MaterialPageRoute(builder: (_) => HomePage()));
   }
-}
-

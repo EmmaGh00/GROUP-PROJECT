@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:project_test1/models/score.dart';
 import 'package:project_test1/screens/awardsPage.dart';
 import 'dart:ui' as ui;
 
@@ -11,6 +12,7 @@ import 'package:project_test1/screens/myDiaryPage.dart';
 import 'package:project_test1/screens/profilePage.dart';
 import 'package:project_test1/screens/privacyPage.dart';
 import 'package:project_test1/screens/todayPage.dart';
+import 'package:provider/provider.dart';
 
 
 class HomePage extends StatelessWidget {
@@ -42,6 +44,25 @@ class HomePage extends StatelessWidget {
           decoration: BoxDecoration(borderRadius: BorderRadius.circular(10)),
           child: Column(
             children:[
+
+              Expanded(
+                child: Text('Points: ${Provider.of<ScoreModel>(context).score}',
+                  style: TextStyle(
+                    fontSize: 40,
+                    foreground: Paint()
+                      ..shader = ui.Gradient.linear(
+                        const Offset(0, 20),
+                        const Offset(250, 20),
+                        <Color> [
+                          Color.fromARGB(255, 33, 40, 243).withOpacity(0.5),
+                          Color.fromARGB(255, 3, 191, 248).withOpacity(0.5),
+                        ]
+                      )
+                  ),
+                )
+              ),
+              
+
 
               // PRIMA RIGA
               Expanded(
@@ -195,7 +216,7 @@ class HomePage extends StatelessWidget {
                         ),
                       ),
                       onPressed: (){
-                        Navigator.push (context, MaterialPageRoute(builder:(context) => Today()));
+                        Navigator.push (context, MaterialPageRoute(builder:(context) => TodayPage()));
                       },
                     ),
 
@@ -215,7 +236,7 @@ class HomePage extends StatelessWidget {
                         )
                       ),
                       onPressed: () {
-                        Navigator.push (context, MaterialPageRoute(builder:(context) => DailyQuiz()));
+                        Navigator.push (context, MaterialPageRoute(builder:(context) => QuizPage()));
                       },
                     ),
                   ],                  

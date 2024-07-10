@@ -43,6 +43,10 @@ class _MonitoringPageState extends State<Monitoring> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
 
+            // DA DEFINIRE CON SHARED PREFERENCES di HR_rest, sleep, HR_mean
+            // con dentro il valore di quel giorno
+            // da usare poi nella pagina today
+
             // HR REST DATA
             Consumer<DataProvider>(builder: (context, data, child) {
               if (data.restData.length == 0){
@@ -57,6 +61,7 @@ class _MonitoringPageState extends State<Monitoring> {
             ElevatedButton(
               onPressed: (){
                 Provider.of<DataProvider>(context, listen: false).fetchRestData('2023-05-16');
+                //HR_rest = ...
               }, 
               child: Text('Fetch HR rest data')
             ),
@@ -75,6 +80,7 @@ class _MonitoringPageState extends State<Monitoring> {
             ElevatedButton(
               onPressed: (){
                 Provider.of<DataProvider>(context, listen: false).fetchSleepData('2023-05-16');
+                //sleep = ...
               }, 
               child: Text('Fetch sleep data')
             ),
@@ -93,6 +99,7 @@ class _MonitoringPageState extends State<Monitoring> {
             ElevatedButton(
               onPressed: (){
                 Provider.of<DataProvider>(context, listen: false).fetchHeartRateData('2023-05-16');
+                //HR_mean = media(HR...)
               }, 
               child: Text('Fetch HR data')
             ),

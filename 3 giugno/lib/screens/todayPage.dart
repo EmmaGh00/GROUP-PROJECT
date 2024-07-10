@@ -1,27 +1,60 @@
-// ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors
+import 'dart:ffi';
+
 import 'package:flutter/material.dart';
 import 'package:project_test1/models/score.dart';
-import 'package:provider/provider.dart';
+import 'package:project_test1/provider/data_provider.dart';
 import 'package:project_test1/screens/homePage.dart';
+import 'package:provider/provider.dart';
 
-class Today extends StatefulWidget { 
-  
+
+void main() {
+  runApp(MyApp());
+}
+
+class MyApp extends StatelessWidget {
   @override
-  _TodayState createState() => _TodayState();
-} //LoginPage
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: TodayPage(),
+    );
+  }
+}
 
-class _TodayState extends State<Today> {
-  //final String contattoEmergenza;
+class TodayPage extends StatefulWidget {
+  @override
+  _TodayPageState createState() => _TodayPageState();
+}
 
-//Emergency(this.contattoEmergenza);
+class _TodayPageState extends State<TodayPage> {
+  int currentQuestionIndex = 0;
+  int sus = 0;
+
+ final List<Question> questions = [
+    Question(questionText: "Do you drunk or use some substances that are dangerous for your health?", isTrue: false),
+  ];
+
+  void answerQuestion(bool userAnswer) {
+    if (questions[currentQuestionIndex].isTrue == userAnswer) {
+      Provider.of<ScoreModel>(context, listen: false).increment10Score();
+
+      // DA TOGLIERE COMMENTO QUANDO SARANNO DEFINITE LE VARIABILI IN SHARED PREFERENCES
+      /*
+      if HR_rest > 80 && sleep < 240 && HR_mean > 80 {
+        Provider.of<ScoreModel>(context, listen: false).incrementScore(); //decrement di 10 punti
+      } else {
+        Provider.of<ScoreModel>(context, listen: false).incrementScore(); // incremento di 10 punti
+      }*/
+
+    } else {
+      Provider.of<ScoreModel>(context, listen: false).decrement5Score(); //decrement di 5 punti per la sincerità
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
-       // backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
-      appBar: AppBar(    
-        title: Text('Emergency',
+      appBar: AppBar(
+        title: Text('Today',
           style: TextStyle(
             fontFamily: 'Outfit',
             fontStyle: FontStyle.normal,
@@ -38,7 +71,6 @@ class _TodayState extends State<Today> {
             => _toHomePage(context), icon: Icon(Icons.arrow_back)
         )
       ),
-
       body: SafeArea(
         top: true,
         child: Stack(
@@ -49,6 +81,12 @@ class _TodayState extends State<Today> {
                 mainAxisSize: MainAxisSize.max,
                 crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
+                    QuizQuestion(
+                      question: questions[currentQuestionIndex],
+                      answerQuestion: answerQuestion,
+                    ),
+                    
+                    /*
                     Text('Punteggio: ${Provider.of<ScoreModel>(context).score}'),
                     ElevatedButton(
                       onPressed: () {
@@ -62,6 +100,7 @@ class _TodayState extends State<Today> {
                       },
                       child: Text('Resetta Punteggio'),
                     ),
+                    */
                   
                     Opacity(
                       opacity: 0.1,
@@ -74,6 +113,7 @@ class _TodayState extends State<Today> {
                           ),
                         ),
                     ),
+
                   ],
               ),
             ), 
@@ -82,8 +122,55 @@ class _TodayState extends State<Today> {
       ),
     );
   }
+}
 
-  // NAVIGATION - toHomePage
+class Question {
+  final String questionText;
+  final bool isTrue;
+
+  Question({required this.questionText, required this.isTrue});
+}
+
+
+class QuizQuestion extends StatelessWidget {
+  final Question question;
+  final Function(bool) answerQuestion;
+
+  QuizQuestion({required this.question, required this.answerQuestion});
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.all(16.0),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Text(
+            question.questionText,
+            style: TextStyle(fontSize: 24),
+            textAlign: TextAlign.center,
+          ),
+          SizedBox(height: 20),
+          ElevatedButton(
+            onPressed: () => answerQuestion(true),
+            child: Text('True'),
+          ),
+          SizedBox(height: 10),
+          ElevatedButton(
+            onPressed: () => answerQuestion(false),
+            child: Text('False'),
+             ),
+        ],
+      )
+      
+     
+    );
+    
+  }
+}
+
+
+// NAVIGATION - toHomePage
   void _toHomePage(BuildContext context){
     //Pop the drawer first 
     //Navigator.pop(context);
@@ -91,5 +178,3 @@ class _TodayState extends State<Today> {
     Navigator.pop(context);
     Navigator.push(context, MaterialPageRoute(builder: (_) => HomePage()));
   }
-}
-
