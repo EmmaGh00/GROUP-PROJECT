@@ -33,17 +33,16 @@ class _TodayPageState extends State<TodayPage> {
   void answerQuestion(bool userAnswer) {
     
     if (questions[currentQuestionIndex].isTrue == userAnswer) {
-      Provider.of<ScoreModel>(context, listen: false).increment10Score();
+      //Provider.of<ScoreModel>(context, listen: false).increment10Score();
 
       // DA TOGLIERE COMMENTO QUANDO SARANNO DEFINITE LE VARIABILI IN SHARED PREFERENCES
       var provider = Provider.of<DataProvider>(context, listen: false);
 
       if ((provider.restNum > 80) && (provider.sleepNum < 240) && (provider.HR_mean > 80)) {
-        Provider.of<ScoreModel>(context, listen: false).incrementScore(); //decrement di 10 punti
+        Provider.of<ScoreModel>(context, listen: false).decrement10Score(); //decrement di 10 punti perchè ha mentito
       } else {
-        Provider.of<ScoreModel>(context, listen: false).incrementScore(); // incremento di 10 punti
+        Provider.of<ScoreModel>(context, listen: false).increment10Score(); // incremento di 5 punti perchè corretto
       }
-
     } else {
       Provider.of<ScoreModel>(context, listen: false).decrement5Score(); //decrement di 5 punti per la sincerità
     } 

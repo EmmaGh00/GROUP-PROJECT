@@ -47,7 +47,7 @@ class _PrivacyPageState extends State<PrivacyPage> {
                 mainAxisSize: MainAxisSize.max,
                 crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text('This app respects the rigths under GDPR (General Data Regulation Protection), so you have the rights:',
+                    Text('This app is compliant to GDPR (General Data Regulation Protection), so you have the rights:',
                       style: TextStyle(
                         fontFamily: 'Outfit',
                         fontStyle: FontStyle.normal,

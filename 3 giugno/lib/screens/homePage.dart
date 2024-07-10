@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:project_test1/models/score.dart';
 import 'package:project_test1/screens/awardsPage.dart';
+import 'package:provider/provider.dart';
 import 'dart:ui' as ui;
 
 import 'package:project_test1/screens/calendarPage.dart';
@@ -12,7 +13,6 @@ import 'package:project_test1/screens/myDiaryPage.dart';
 import 'package:project_test1/screens/profilePage.dart';
 import 'package:project_test1/screens/privacyPage.dart';
 import 'package:project_test1/screens/todayPage.dart';
-import 'package:provider/provider.dart';
 
 
 class HomePage extends StatelessWidget {
@@ -39,13 +39,12 @@ class HomePage extends StatelessWidget {
         ),
       ),
       body: Center(
-        child:Container(
+        child: Container(
           height: 400,
           width: 350,
           decoration: BoxDecoration(borderRadius: BorderRadius.circular(10)),
           child: Column(
             children:[
-
               Expanded(
                 child: Text('Points: ${Provider.of<ScoreModel>(context).score}',
                   style: TextStyle(
@@ -63,8 +62,6 @@ class HomePage extends StatelessWidget {
                 )
               ),
               
-
-
               // PRIMA RIGA
               Expanded(
                 child: Row(
@@ -89,7 +86,6 @@ class HomePage extends StatelessWidget {
                         Navigator.push(context, MaterialPageRoute(builder:(context) => Monitoring()));
                       },
                     ),
-
                     //CALENDAR
                     ElevatedButton.icon(
                       icon: Icon(
@@ -112,7 +108,6 @@ class HomePage extends StatelessWidget {
                   ], //children                 
                 ),
               ),
-
               // FRASE: YOU CAN DO IT
               Expanded(
                 child: Text('YOU CAN DO IT!',
@@ -136,14 +131,14 @@ class HomePage extends StatelessWidget {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    //MY DIARY
+                    //TODAY SCORE
                     ElevatedButton.icon(
                       icon: Icon(
-                        Icons.draw, 
+                        Icons.today, 
                         color:Colors.blue, 
                         size:50.0,
                       ),
-                      label: Text('My Diary',
+                      label: Text('Today',
                         style: TextStyle(
                           color: Colors.blue,
                           fontSize: 16,
@@ -152,18 +147,17 @@ class HomePage extends StatelessWidget {
                         ),
                       ),
                       onPressed: (){
-                        Navigator.push (context, MaterialPageRoute(builder:(context) => MyDiaryPage()));
+                        Navigator.push (context, MaterialPageRoute(builder:(context) => TodayPage()));
                       },
                     ),
-
-                    //EMERGENCY
+                    //DAILY QUIZ
                     ElevatedButton.icon(
                       icon: Icon(
-                        Icons.emergency_outlined, 
+                        Icons.quiz_outlined, 
                         color:Colors.blue, 
-                        size: 50.0,
+                        size:50.0,
                       ),
-                      label: Text('Emergency',
+                      label: Text('Daily Quiz',
                         style: TextStyle(
                           color: Colors.blue,
                           fontSize: 16,
@@ -172,7 +166,8 @@ class HomePage extends StatelessWidget {
                         )
                       ),
                       onPressed: () {
-                        Navigator.push (context, MaterialPageRoute(builder:(context) => Emergency()));
+                        Navigator.push (context, MaterialPageRoute(builder:(context) => QuizPage()));
+                        // se si entra la prima volta si risponde alle domande, altrimenti mostra solo lo score
                       },
                     ),
                   ],                  
@@ -201,14 +196,14 @@ class HomePage extends StatelessWidget {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    //TODAY SCORE
+                    //MY DIARY
                     ElevatedButton.icon(
                       icon: Icon(
-                        Icons.today, 
+                        Icons.draw, 
                         color:Colors.blue, 
                         size:50.0,
                       ),
-                      label: Text('Today',
+                      label: Text('My Diary',
                         style: TextStyle(
                           color: Colors.blue,
                           fontSize: 16,
@@ -217,18 +212,17 @@ class HomePage extends StatelessWidget {
                         ),
                       ),
                       onPressed: (){
-                        Navigator.push (context, MaterialPageRoute(builder:(context) => TodayPage()));
+                        Navigator.push (context, MaterialPageRoute(builder:(context) => MyDiaryPage()));
                       },
                     ),
-
-                    //DAILY QUIZ
+                    //EMERGENCY
                     ElevatedButton.icon(
                       icon: Icon(
-                        Icons.quiz_outlined, 
+                        Icons.emergency_outlined, 
                         color:Colors.blue, 
-                        size:50.0,
+                        size: 50.0,
                       ),
-                      label: Text('Daily Quiz',
+                      label: Text('Emergency',
                         style: TextStyle(
                           color: Colors.blue,
                           fontSize: 16,
@@ -237,8 +231,7 @@ class HomePage extends StatelessWidget {
                         )
                       ),
                       onPressed: () {
-                        Navigator.push (context, MaterialPageRoute(builder:(context) => QuizPage()));
-                        // se si entra la prima volta si risponde alle domande, altrimenti mostra solo lo score
+                        Navigator.push (context, MaterialPageRoute(builder:(context) => Emergency()));
                       },
                     ),
                   ],                  
