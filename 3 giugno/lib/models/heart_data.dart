@@ -13,7 +13,7 @@ class HeartData {
   
   HeartData.fromJson(String date, Map<String, dynamic> json) :
       time = DateFormat('yyyy-MM-dd HH:mm:ss').parse('$date ${json["time"]}'),
-      value = int.parse(json["value"]);
+      value = (json["value"]);
 
   @override
   String toString() {

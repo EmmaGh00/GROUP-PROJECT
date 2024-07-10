@@ -39,12 +39,12 @@ class _TodayPageState extends State<TodayPage> {
       Provider.of<ScoreModel>(context, listen: false).increment10Score();
 
       // DA TOGLIERE COMMENTO QUANDO SARANNO DEFINITE LE VARIABILI IN SHARED PREFERENCES
-      /*
-      if HR_rest > 80 && sleep < 240 && HR_mean > 80 {
+      var provider = Provider.of<DataProvider>(context, listen: false);
+      if (provider.restData > 80 && provider.sleepData < 240 && HR_mean > 80) {
         Provider.of<ScoreModel>(context, listen: false).incrementScore(); //decrement di 10 punti
       } else {
         Provider.of<ScoreModel>(context, listen: false).incrementScore(); // incremento di 10 punti
-      }*/
+      }
 
     } else {
       Provider.of<ScoreModel>(context, listen: false).decrement5Score(); //decrement di 5 punti per la sincerità

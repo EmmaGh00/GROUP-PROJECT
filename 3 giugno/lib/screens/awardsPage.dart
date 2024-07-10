@@ -85,14 +85,13 @@ class _AwardsPageState extends State<AwardsPage> {
                     children: [
                         GestureDetector(
                           onTap:() {
-                            /*
-                            if (({Provider.of<ScoreModel>(context).score}) > 150) {
+                            if ((Provider.of<ScoreModel>(context).score) > 150) {
                               Navigator.push(context, MaterialPageRoute(builder:(context) => cinemaAward()));
                             } else {
                               Text('Non hai abbastanza punti per accedere al premio. Punti necessari: 150');
                             }
-                            */
-                             Navigator.push(context, MaterialPageRoute(builder:(context) => cinemaAward()));
+                            
+                            //Navigator.push(context, MaterialPageRoute(builder:(context) => cinemaAward()));
                           },
                           child: Image.network(
                             'https://media.istockphoto.com/id/921532564/it/vettoriale/biglietto-del-cinema-isolato-su-sfondo-bianco.jpg?s=612x612&w=0&k=20&c=Ro8v0hq4YnzJZ-zkr-yc8-jbjE1btxYnbtKpzevwgZA=',
