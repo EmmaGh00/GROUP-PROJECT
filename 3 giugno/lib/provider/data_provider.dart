@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:project_test1/models/heart_data.dart';
 import 'package:project_test1/models/rest_data.dart';
@@ -11,6 +12,12 @@ class DataProvider extends ChangeNotifier {
   List<SleepData> sleepData = [];
   List<HeartData> heartData= [];
 
+  double restNum = 0.0;
+  int sleepNum = 0;
+  num sum = 0;
+  int numHR = 0;
+  double HR_mean = 0.0;
+
   //Method to fetch step data from the server
   void fetchRestData(String day) async {
     //Get the response
@@ -21,6 +28,7 @@ class DataProvider extends ChangeNotifier {
         restData.add(
            Restdata.fromJson(data['data']['date'], data['data']['data']['value'])
         );
+        restNum = data['data']['data']['value'];
       //remember to notify the listeners
       notifyListeners();
     }//if
@@ -38,6 +46,7 @@ class DataProvider extends ChangeNotifier {
         sleepData.add(
             SleepData.fromJson(data['data']['date'], data['data']['data']['minutesAsleep'])
         );
+        sleepNum = data['data']['data']['minutesAsleep'];
       }
 
       //remember to notify the listeners
@@ -60,6 +69,11 @@ class DataProvider extends ChangeNotifier {
             HeartData.fromJson(data['data']['date'], data['data']['data'][i]));
       } //for
 
+      for (var k = 0; k < data['data']['data'].length; k++) {
+        sum += data['data']['data'][k]['value'];
+        numHR = k;
+      }
+      HR_mean = sum / numHR;
       //remember to notify the listeners
       notifyListeners();
     }//if

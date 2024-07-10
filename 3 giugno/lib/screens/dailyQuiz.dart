@@ -1,7 +1,10 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:project_test1/models/score.dart';
 import 'package:project_test1/screens/homePage.dart';
 import 'package:provider/provider.dart';
+import 'dart:ui' as ui;
 
 void main() {
   runApp(MyApp());
@@ -130,18 +133,42 @@ class QuizResult extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Text(
-            'End!',
-            style: TextStyle(fontSize: 24),
-          ),
-          Text(
-            'Your score is $sus/$totalQuestions',
-            style: TextStyle(fontSize: 20),
-          ),
-          SizedBox(height: 20),
+      child: Column( 
+              mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Center(
+                    child: Text('Finish!',
+                      style: TextStyle(
+                        fontSize: 40,
+                        foreground: Paint()
+                        ..shader = ui.Gradient.linear(
+                          const Offset(0, 20),
+                          const Offset(250, 20),
+                          <Color> [
+                            Color.fromARGB(255, 33, 40, 243).withOpacity(0.5),
+                            Color.fromARGB(255, 3, 191, 248).withOpacity(0.5),
+                          ]
+                        )
+                      ),
+                    )
+                  ),
+                  Text('Your score is $sus/$totalQuestions',
+                    style: TextStyle(fontSize: 20),
+                  ),
+                  Opacity(
+                    opacity: 0.1,
+                    child: Align(
+                      alignment: Alignment.center,
+                      child: Icon(
+                        Icons.quiz_outlined,
+                          color: Colors.blue,
+                          size: 150,
+                        ),
+                    ),
+                  ),
+                ]
+            ),
+          /*SizedBox(height: 20),
           ElevatedButton(
             onPressed: () {
               // Riavvia il quiz
@@ -150,21 +177,8 @@ class QuizResult extends StatelessWidget {
               );
             },
             child: Text('Restart'),
-          ),
-            Opacity(
-              opacity: 0.1,
-              child: Align(
-                alignment: Alignment.center,
-                child: Icon(
-                  Icons.quiz_outlined,
-                    color: Colors.blue,
-                    size: 150,
-                  ),
-                ),
-            ),
-        ],
-      ),
-    );
+          ),*/
+      );
   }
 }
 

@@ -17,11 +17,12 @@ import 'package:provider/provider.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
-
+  
   static const routename = 'Homepage';
 
   @override
   Widget build(BuildContext context) {
+
     print('${HomePage.routename} built');
     return Scaffold(
       appBar: AppBar(
@@ -237,6 +238,7 @@ class HomePage extends StatelessWidget {
                       ),
                       onPressed: () {
                         Navigator.push (context, MaterialPageRoute(builder:(context) => QuizPage()));
+                        // se si entra la prima volta si risponde alle domande, altrimenti mostra solo lo score
                       },
                     ),
                   ],                  

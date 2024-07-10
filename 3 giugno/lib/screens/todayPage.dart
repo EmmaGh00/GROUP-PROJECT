@@ -1,11 +1,8 @@
-import 'dart:ffi';
-
 import 'package:flutter/material.dart';
 import 'package:project_test1/models/score.dart';
 import 'package:project_test1/provider/data_provider.dart';
 import 'package:project_test1/screens/homePage.dart';
 import 'package:provider/provider.dart';
-
 
 void main() {
   runApp(MyApp());
@@ -41,7 +38,7 @@ class _TodayPageState extends State<TodayPage> {
       // DA TOGLIERE COMMENTO QUANDO SARANNO DEFINITE LE VARIABILI IN SHARED PREFERENCES
       var provider = Provider.of<DataProvider>(context, listen: false);
 
-      if (provider.restData[0] > 80 && provider.sleepData < 240 && HR_mean > 80) {
+      if ((provider.restNum > 80) && (provider.sleepNum < 240) && (provider.HR_mean > 80)) {
         Provider.of<ScoreModel>(context, listen: false).incrementScore(); //decrement di 10 punti
       } else {
         Provider.of<ScoreModel>(context, listen: false).incrementScore(); // incremento di 10 punti

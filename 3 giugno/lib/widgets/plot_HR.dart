@@ -4,6 +4,7 @@ import 'package:syncfusion_flutter_charts/charts.dart';
 import 'package:project_test1/models/heart_data.dart';
 
 /// Local import
+/// IMPORTARE DATI FINO AL MINUTO CORRENTE (E NON DI TUTTO IL GIORNO SELEZIONATO) - solo qui
 
 ///Renders default line series chart
 class HRDataPlot extends StatelessWidget {
