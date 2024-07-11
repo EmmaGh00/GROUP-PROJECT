@@ -76,8 +76,13 @@ class ScoreModel extends ChangeNotifier {
     notifyListeners();
   }
 
-
   void resetScore() {
+    _score = 170;
+    _saveScore();
+    notifyListeners();
+  }
+
+  void delateScore() {
     _score = 0;
     _saveScore();
     notifyListeners();

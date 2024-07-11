@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:project_test1/models/score.dart';
 import 'package:project_test1/screens/awardsPage.dart';
+import 'package:project_test1/screens/quizPageLast.dart';
+import 'package:project_test1/screens/todayPageLast.dart';
 import 'package:provider/provider.dart';
 import 'dart:ui' as ui;
 
@@ -13,6 +15,7 @@ import 'package:project_test1/screens/myDiaryPage.dart';
 import 'package:project_test1/screens/profilePage.dart';
 import 'package:project_test1/screens/privacyPage.dart';
 import 'package:project_test1/screens/todayPage.dart';
+import 'package:project_test1/models/daily.dart';
 
 
 class HomePage extends StatelessWidget {
@@ -147,7 +150,12 @@ class HomePage extends StatelessWidget {
                         ),
                       ),
                       onPressed: (){
-                        Navigator.push (context, MaterialPageRoute(builder:(context) => TodayPage()));
+                        if(Provider.of<TodayModel>(context, listen: false).today == false){
+                          Navigator.push (context, MaterialPageRoute(builder:(context) => TodayPage()));
+                          Provider.of<TodayModel>(context, listen: false).clickToday();
+                        }else{
+                          Navigator.push (context, MaterialPageRoute(builder:(context) => TodayPageLast()));
+                        }
                       },
                     ),
                     //DAILY QUIZ
@@ -166,8 +174,12 @@ class HomePage extends StatelessWidget {
                         )
                       ),
                       onPressed: () {
-                        Navigator.push (context, MaterialPageRoute(builder:(context) => QuizPage()));
-                        // se si entra la prima volta si risponde alle domande, altrimenti mostra solo lo score
+                        if(Provider.of<QuizModel>(context, listen: false).quiz == false){
+                          Navigator.push (context, MaterialPageRoute(builder:(context) => QuizPage()));
+                          Provider.of<QuizModel>(context, listen: false).clickQuiz();
+                        }else{
+                          Navigator.push (context, MaterialPageRoute(builder:(context) => QuizPageLast()));
+                        }
                       },
                     ),
                   ],                  
@@ -251,18 +263,20 @@ class HomePage extends StatelessWidget {
                       icon: Icon(
                         Icons.reset_tv_outlined, 
                         color:Colors.blue, 
-                        size:50.0,
+                        size:30.0,
                       ),
                       label: Text('Reset score',
                         style: TextStyle(
                           color: Colors.blue,
-                          fontSize: 16,
+                          fontSize: 13,
                           fontStyle: FontStyle.normal,
                           fontWeight: FontWeight.bold,
                         ),
                       ),
                       onPressed: (){
                         Provider.of<ScoreModel>(context, listen: false).resetScore();
+                        //Provider.of<QuizModel>(context, listen: false).resetQuiz();
+                        //Provider.of<TodayModel>(context, listen: false).resetToday();
                       },
                     ),
                   ],                  

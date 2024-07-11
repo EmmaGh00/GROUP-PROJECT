@@ -83,6 +83,7 @@ class DataProvider extends ChangeNotifier {
   void clearData() {
     restData.clear();
     sleepData.clear();
+    heartData.clear();
     notifyListeners();
   }//clearData
   

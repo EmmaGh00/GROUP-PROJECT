@@ -86,7 +86,6 @@ class Question {
   Question({required this.questionText, required this.isTrue});
 }
 
-
 class QuizQuestion extends StatelessWidget {
   final Question question;
   final Function(bool) answerQuestion;
@@ -132,8 +131,13 @@ class QuizResult extends StatelessWidget {
   QuizResult({required this.sus, required this.totalQuestions});
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Column( 
+    return SafeArea(
+      top: true,
+      child: Stack(
+        children: [
+          Padding(
+            padding: EdgeInsets.all(24),
+            child: Column( 
               mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Center(
@@ -155,30 +159,24 @@ class QuizResult extends StatelessWidget {
                   Text('Your score is $sus/$totalQuestions',
                     style: TextStyle(fontSize: 20),
                   ),
-                  Opacity(
-                    opacity: 0.1,
-                    child: Align(
-                      alignment: Alignment.center,
-                      child: Icon(
-                        Icons.quiz_outlined,
-                          color: Colors.blue,
-                          size: 150,
-                        ),
-                    ),
-                  ),
                 ]
+            ), 
+          ),
+          Opacity(
+            opacity: 0.1,
+            child: Align(
+              alignment: Alignment.center,
+              child: Icon(
+                Icons.quiz_outlined,
+                  color: Colors.blue,
+                  size: 300,
+                ),
             ),
-          /*SizedBox(height: 20),
-          ElevatedButton(
-            onPressed: () {
-              // Riavvia il quiz
-              Navigator.of(context).pushReplacement(
-                MaterialPageRoute(builder: (context) => QuizPage()),
-              );
-            },
-            child: Text('Restart'),
-          ),*/
-      );
+          ), 
+          //codice commentato sotto 
+        ],
+      ),
+    );
   }
 }
 
@@ -190,3 +188,14 @@ class QuizResult extends StatelessWidget {
     Navigator.pop(context);
     Navigator.push(context, MaterialPageRoute(builder: (_) => HomePage()));
   }
+
+/*SizedBox(height: 20),
+          ElevatedButton(
+            onPressed: () {
+              // Riavvia il quiz
+              Navigator.of(context).pushReplacement(
+                MaterialPageRoute(builder: (context) => QuizPage()),
+              );
+            },
+            child: Text('Restart'),
+          ),*/

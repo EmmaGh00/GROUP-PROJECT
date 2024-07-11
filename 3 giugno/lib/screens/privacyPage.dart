@@ -1,7 +1,10 @@
 // ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 import 'package:project_test1/screens/homePage.dart';
+import 'package:project_test1/provider/data_provider.dart';
+import 'package:project_test1/models/score.dart';
 
 class PrivacyPage extends StatefulWidget { 
   
@@ -65,7 +68,30 @@ class _PrivacyPageState extends State<PrivacyPage> {
                         color: Colors.black,
                         fontSize: 20,
                         letterSpacing: 0,
-                      )),
+                      )
+                    ),
+                    SizedBox(
+                      height: 130,
+                    ),
+                    ElevatedButton.icon(
+                      icon: Icon(
+                        Icons.delete_forever_outlined, 
+                        color:Colors.blue, 
+                        size: 40.0,
+                      ),
+                      label: Text('Clear all data & reset score',
+                        style: TextStyle(
+                          color: Colors.blue,
+                          fontSize: 15,
+                          fontStyle: FontStyle.normal,
+                          fontWeight: FontWeight.bold,
+                        )
+                      ),
+                      onPressed: () {
+                        Provider.of<DataProvider>(context, listen: false).clearData();
+                        Provider.of<ScoreModel>(context, listen: false).delateScore();
+                      },
+                    ),
                 ],
               ),
             ),
