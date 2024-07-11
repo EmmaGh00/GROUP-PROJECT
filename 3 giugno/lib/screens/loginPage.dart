@@ -81,7 +81,7 @@ class _LoginPageState extends State<LoginPage> {
                         fontSize: 16,
                       )
                     ),
-                    onPressed: () async { 
+                    onPressed: () async {
                       if(userController.text == 'fjUj9CGlJ5' && passwordController.text == '12345678!'){
                         final result = await ImpactService.authorize();
                         final message =

@@ -88,7 +88,7 @@ class _MonitoringPageState extends State<Monitoring> {
 
                 // HR DATA
                 Consumer<DataProvider>(builder: (context, data, child) {
-                  if (data.sleepData.length == 0){
+                  if (data.heartData.length == 0){
                     return Text('No HR data to display');
                   } else {
                     return HRDataPlot(heartData: data.heartData);

@@ -237,6 +237,39 @@ class HomePage extends StatelessWidget {
                   ],                  
                 ),
               ),
+
+              Expanded(
+                child: SizedBox()
+              ),
+
+              // BOTTONE RESET SCORE
+              Expanded(
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    ElevatedButton.icon(
+                      icon: Icon(
+                        Icons.reset_tv_outlined, 
+                        color:Colors.blue, 
+                        size:50.0,
+                      ),
+                      label: Text('Reset score',
+                        style: TextStyle(
+                          color: Colors.blue,
+                          fontSize: 16,
+                          fontStyle: FontStyle.normal,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      onPressed: (){
+                        Provider.of<ScoreModel>(context, listen: false).resetScore();
+                      },
+                    ),
+                  ],                  
+                ),
+              ),
+
+
             ], //children
           ),
         ),

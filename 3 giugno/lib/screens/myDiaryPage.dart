@@ -88,52 +88,62 @@ class _MyDiaryPageState extends State<MyDiaryPage> {
         ],
       ),
 
-      body: Column(
-        children: [
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Row(
-              children: [
-                Expanded(
-                  child: TextField(
-                    controller: _controller,
-                    decoration: InputDecoration(
-                      labelText: 'Keep a diary of your thoughts, write down them here.',
+      body: SafeArea(
+        top:true,
+        child: Stack(
+          children: [
+            Padding(
+              padding: EdgeInsets.all(24),
+              child:
+                Column(
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Row(
+                        children: [
+                          Expanded(
+                            child: TextField(
+                              controller: _controller,
+                              decoration: InputDecoration(
+                                labelText: 'Keep a diary of your thoughts, write down them here.',
+                              ),
+                            ),
+                          ),
+                          IconButton(
+                            icon: Icon(Icons.send),
+                            onPressed: _sendMessage,
+                          ),
+                        ],
+                      ),
                     ),
-                  ),
+                    Expanded(
+                      child: ListView.builder(
+                        itemCount: _messages.length,
+                        itemBuilder: (context, index) {
+                          return ListTile(
+                            title: Text(_messages[index]),
+                          );
+                        },
+                      ),
+                    ),
+                  ],
                 ),
-                IconButton(
-                  icon: Icon(Icons.send),
-                  onPressed: _sendMessage,
-                ),
-              ],
             ),
-          ),
-          Expanded(
-            child: ListView.builder(
-              itemCount: _messages.length,
-              itemBuilder: (context, index) {
-                return ListTile(
-                  title: Text(_messages[index]),
-                );
-              },
-            ),
-          ),
-          Opacity(
-                opacity: 0.1,
-                child: Align(
-                  alignment: Alignment.center,
-                  child: Icon(
-                    Icons.auto_stories_outlined,
+
+            Opacity(
+              opacity: 0.1,
+              child: Align(
+                alignment: Alignment.center,
+                child: Icon(
+                  Icons.auto_stories_outlined,
                     color: Colors.blue,
                     size: 300,
                   ),
                 ),
               ),
-        ],
-      ),
-
-
+          ],
+        ),
+      )
     );
   } // Widget Build context
 

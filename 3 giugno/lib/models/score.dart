@@ -3,7 +3,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 
 class ScoreModel extends ChangeNotifier {
-  int _score = 200;
+  int _score = 170;
 
   int get score => _score;
 
@@ -13,7 +13,7 @@ class ScoreModel extends ChangeNotifier {
 
   Future<void> _loadScore() async {
     final prefs = await SharedPreferences.getInstance();
-    _score = prefs.getInt('score') ?? 0;
+    _score = prefs.getInt('score') ?? 170;
     notifyListeners();
   }
 

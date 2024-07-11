@@ -53,7 +53,7 @@ class _PrivacyPageState extends State<PrivacyPage> {
                         fontStyle: FontStyle.normal,
                         fontWeight: FontWeight.normal,
                         color: Colors.black,
-                        fontSize: 20,
+                        fontSize: 25,
                         letterSpacing: 0,
                       ),
                     ),
@@ -63,23 +63,24 @@ class _PrivacyPageState extends State<PrivacyPage> {
                         fontStyle: FontStyle.normal,
                         fontWeight: FontWeight.normal,
                         color: Colors.black,
-                        fontSize: 17,
+                        fontSize: 20,
                         letterSpacing: 0,
                       )),
-                    Opacity(
-                      opacity: 0.1,
-                      child: Align(
-                        alignment: Alignment.center,
-                        child: Icon(
-                          Icons.shield_outlined,
-                          color: Colors.blue,
-                          size: 300,
-                          ),
-                        ),
-                    ),
-                  ],
+                ],
               ),
-            ), 
+            ),
+                   
+            Opacity(
+              opacity: 0.1,
+              child: Align(
+                alignment: Alignment.center,
+                  child: Icon(
+                    Icons.shield_outlined,
+                      color: Colors.blue,
+                      size: 300,
+                      ),
+                    ),
+              ),
           ],
         ),
       ),   
