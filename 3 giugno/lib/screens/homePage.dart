@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:project_test1/models/score.dart';
-import 'package:project_test1/screens/awardsPage.dart';
-import 'package:project_test1/screens/quizPageLast.dart';
-import 'package:project_test1/screens/todayPageLast.dart';
+import 'package:project_test1/models/quiz.dart';
+import 'package:project_test1/models/today.dart';
 import 'package:provider/provider.dart';
 import 'dart:ui' as ui;
 
@@ -15,8 +14,9 @@ import 'package:project_test1/screens/myDiaryPage.dart';
 import 'package:project_test1/screens/profilePage.dart';
 import 'package:project_test1/screens/privacyPage.dart';
 import 'package:project_test1/screens/todayPage.dart';
-import 'package:project_test1/models/daily.dart';
-
+import 'package:project_test1/screens/awardsPage.dart';
+import 'package:project_test1/screens/quizPageLast.dart';
+import 'package:project_test1/screens/todayPageLast.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
