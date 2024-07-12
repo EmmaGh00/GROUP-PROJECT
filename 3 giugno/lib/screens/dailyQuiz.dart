@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:project_test1/models/score.dart';
+import 'package:project_test1/models/sus.dart';
 import 'package:project_test1/screens/homePage.dart';
 import 'package:provider/provider.dart';
 import 'dart:ui' as ui;
@@ -26,7 +26,6 @@ class QuizPage extends StatefulWidget {
 
 class _QuizPageState extends State<QuizPage> {
   int currentQuestionIndex = 0;
-  int sus = 0;
 
  final List<Question> questions = [
     Question(questionText: "Drinking increases the risk of heart attack", isTrue: true),
@@ -40,8 +39,7 @@ class _QuizPageState extends State<QuizPage> {
 
   void answerQuestion(bool userAnswer) {
     if (questions[currentQuestionIndex].isTrue == userAnswer) {
-      sus++;
-      Provider.of<ScoreModel>(context, listen: false).incrementScore();
+      Provider.of<SusModel>(context, listen: false).incrementSus();
     }
     setState(() {
       currentQuestionIndex++;
@@ -74,7 +72,7 @@ class _QuizPageState extends State<QuizPage> {
               question: questions[currentQuestionIndex],
               answerQuestion: answerQuestion,
             )
-          : QuizResult(sus: sus, totalQuestions: questions.length),
+          : QuizResult(sus: Provider.of<SusModel>(context).sus, totalQuestions: questions.length),
     );
   }
 }
@@ -156,6 +154,8 @@ class QuizResult extends StatelessWidget {
                       ),
                     )
                   ),
+
+                  
                   Text('Your score is $sus/$totalQuestions',
                     style: TextStyle(fontSize: 20),
                   ),

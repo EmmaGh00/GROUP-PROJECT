@@ -5,7 +5,7 @@ import 'package:project_test1/models/today.dart';
 import 'package:provider/provider.dart';
 import 'dart:ui' as ui;
 
-import 'package:project_test1/screens/calendarPage.dart';
+import 'package:project_test1/screens/motivationPage.dart';
 import 'package:project_test1/screens/dailyQuiz.dart';
 import 'package:project_test1/screens/emergencyPage.dart';
 import 'package:project_test1/screens/loginPage.dart';
@@ -92,11 +92,11 @@ class HomePage extends StatelessWidget {
                     //CALENDAR
                     ElevatedButton.icon(
                       icon: Icon(
-                        Icons.calendar_month, 
+                        Icons.thumb_up_alt_outlined, 
                         color:Colors.blue,
                         size: 50.0,
                       ),
-                      label: Text('Calendar',
+                      label: Text('Why',
                         style: TextStyle(
                           color: Colors.blue,
                           fontSize: 16,
@@ -105,7 +105,7 @@ class HomePage extends StatelessWidget {
                         )
                       ),
                       onPressed: () {
-                        Navigator.push(context, MaterialPageRoute(builder:(context) => Calendar()));
+                        Navigator.push(context, MaterialPageRoute(builder:(context) => Motivation()));
                       },
                     ),
                   ], //children                 
@@ -150,10 +150,10 @@ class HomePage extends StatelessWidget {
                         ),
                       ),
                       onPressed: (){
-                        if(Provider.of<TodayModel>(context, listen: false).today == false){
+                        if ((Provider.of<TodayModel>(context, listen: false).today) == false) {
                           Navigator.push (context, MaterialPageRoute(builder:(context) => TodayPage()));
                           Provider.of<TodayModel>(context, listen: false).clickToday();
-                        }else{
+                        } else{
                           Navigator.push (context, MaterialPageRoute(builder:(context) => TodayPageLast()));
                         }
                       },
@@ -174,7 +174,7 @@ class HomePage extends StatelessWidget {
                         )
                       ),
                       onPressed: () {
-                        if(Provider.of<QuizModel>(context, listen: false).quiz == false){
+                        if((Provider.of<QuizModel>(context, listen: false).quiz) == false){
                           Navigator.push (context, MaterialPageRoute(builder:(context) => QuizPage()));
                           Provider.of<QuizModel>(context, listen: false).clickQuiz();
                         }else{
@@ -275,8 +275,8 @@ class HomePage extends StatelessWidget {
                       ),
                       onPressed: (){
                         Provider.of<ScoreModel>(context, listen: false).resetScore();
-                        //Provider.of<QuizModel>(context, listen: false).resetQuiz();
-                        //Provider.of<TodayModel>(context, listen: false).resetToday();
+                        Provider.of<QuizModel>(context, listen: false).resetQuiz();
+                        Provider.of<TodayModel>(context, listen: false).resetToday();
                       },
                     ),
                   ],                  

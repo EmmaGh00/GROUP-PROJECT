@@ -1,8 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:project_test1/models/score.dart';
-import 'package:project_test1/screens/dailyQuiz.dart';
+import 'package:project_test1/models/sus.dart';
 import 'package:project_test1/screens/homePage.dart';
 import 'package:provider/provider.dart';
 import 'dart:ui' as ui;
@@ -75,7 +74,7 @@ class _QuizPageLastState extends State<QuizPageLast> {
                         ),
                       )
                     ),
-                    Text('Your score is $sus/$totalQuestions',
+                    Text('Your score is ${Provider.of<SusModel>(context).sus}/$totalQuestions',
                       style: TextStyle(fontSize: 20),
                     ),
                   ]
