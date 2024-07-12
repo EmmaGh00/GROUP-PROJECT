@@ -44,9 +44,9 @@ class _MonitoringPageState extends State<Monitoring> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
 
-                // DA DEFINIRE CON SHARED PREFERENCES di HR_rest, sleep, HR_mean
-                // con dentro il valore di quel giorno
-                // da usare poi nella pagina today
+                SizedBox(
+                  height: 50,
+                ),
 
                 // HR REST DATA
                 Consumer<DataProvider>(builder: (context, data, child) {
@@ -56,15 +56,30 @@ class _MonitoringPageState extends State<Monitoring> {
                     return RestDataPlot(restData: data.restData);
                   }
                 }),
-                SizedBox(
-                  height: 10,
-                ),
-                ElevatedButton(
+                
+
+                ElevatedButton.icon(
+                      icon: Icon(
+                        Icons.favorite_outline,
+                        color:Colors.blue, 
+                        size: 50.0,
+                      ),
+                      label: Text('Fetch HR rest data',
+                        style: TextStyle(
+                          color: Colors.blue,
+                          fontSize: 16,
+                          fontStyle: FontStyle.normal,
+                          fontWeight: FontWeight.bold,
+                        )
+                      ),                
                   onPressed: (){
                     Provider.of<DataProvider>(context, listen: false).fetchRestData('2023-05-16');
                     //HR_rest = ...
-                  }, 
-                  child: Text('Fetch HR rest data')
+                  },
+                ),
+
+                SizedBox(
+                  height: 150,
                 ),
 
                 // SLEEP DATA
@@ -75,15 +90,31 @@ class _MonitoringPageState extends State<Monitoring> {
                     return SleepDataPlot(sleepData: data.sleepData);
                   }
                 }),
-                SizedBox(
-                  height: 10,
-                ),
-                ElevatedButton(
+                
+
+                ElevatedButton.icon(
+                      icon: Icon(
+                        Icons.hotel_outlined,
+                        color:Colors.blue, 
+                        size: 50.0,
+                      ),
+                      label: Text('Fetch Sleep data',
+                        style: TextStyle(
+                          color: Colors.blue,
+                          fontSize: 16,
+                          fontStyle: FontStyle.normal,
+                          fontWeight: FontWeight.bold,
+                        )
+                      ),                
                   onPressed: (){
                     Provider.of<DataProvider>(context, listen: false).fetchSleepData('2023-05-16');
-                    //sleep = ...
-                  }, 
-                  child: Text('Fetch sleep data')
+                    //HR_rest = ...
+                  },
+                ),
+
+                
+                SizedBox(
+                  height: 150,
                 ),
 
                 // HR DATA
@@ -94,16 +125,27 @@ class _MonitoringPageState extends State<Monitoring> {
                     return HRDataPlot(heartData: data.heartData);
                   }
                 }),
-                SizedBox(
-                  height: 10,
-                ),
-                ElevatedButton(
+
+
+                ElevatedButton.icon(
+                      icon: Icon(
+                        Icons.monitor_heart_outlined,
+                        color:Colors.blue, 
+                        size: 50.0,
+                      ),
+                      label: Text('Fetch HR data',
+                        style: TextStyle(
+                          color: Colors.blue,
+                          fontSize: 16,
+                          fontStyle: FontStyle.normal,
+                          fontWeight: FontWeight.bold,
+                        )
+                      ),                
                   onPressed: (){
                     Provider.of<DataProvider>(context, listen: false).fetchHeartRateData('2023-05-16');
-                  }, 
-                  child: Text('Fetch HR data')
+                    //HR_rest = ...
+                  },
                 ),
-
 
               ], 
             )

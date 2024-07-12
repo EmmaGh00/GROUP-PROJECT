@@ -73,7 +73,7 @@ class HomePage extends StatelessWidget {
                    //MONITORING 
                    ElevatedButton.icon(
                       icon: Icon(
-                        Icons.monitor_heart_outlined, 
+                        Icons.health_and_safety_outlined, 
                         color:Colors.blue, 
                         size: 50.0,
                       ),

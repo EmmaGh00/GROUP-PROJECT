@@ -75,34 +75,23 @@ class _TodayPageState extends State<TodayPage> {
         top: true,
         child: Stack(
           children: [
+            Expanded(child:
+            SizedBox(height:150),),
             Padding(
               padding: EdgeInsets.all(24),
               child: Column(
                 mainAxisSize: MainAxisSize.max,
                 crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    QuizQuestion(
+                      QuizQuestion(
                       question: questions[currentQuestionIndex],
                       answerQuestion: answerQuestion,
-                    ), 
-                    
-                    /*
-                    Text('Punteggio: ${Provider.of<ScoreModel>(context).score}'),
-                    ElevatedButton(
-                      onPressed: () {
-                        Provider.of<ScoreModel>(context, listen: false).incrementScore();
-                      },
-                      child: Text('Incrementa'),
-                    ),
-                    ElevatedButton(
-                      onPressed: () {
-                        Provider.of<ScoreModel>(context, listen: false).resetScore();
-                      },
-                      child: Text('Resetta Punteggio'),
-                    ),
-                    */
-                  
-                    Opacity(
+                  ),
+                ],
+              
+            ),
+            ),
+            Opacity(
                       opacity: 0.1,
                       child: Align(
                         alignment: Alignment.center,
@@ -113,10 +102,6 @@ class _TodayPageState extends State<TodayPage> {
                           ),
                         ),
                     ),
-
-                  ],
-              ),
-            ), 
           ],
         ),
       ),
@@ -151,17 +136,42 @@ class QuizQuestion extends StatelessWidget {
             textAlign: TextAlign.center,
           ),
           SizedBox(height: 20),
-          ElevatedButton(
-            onPressed: ()
-            => answerQuestion(true),
-
-            child: Text('Yes'),
-          ),
+          ElevatedButton.icon(
+                      icon: Icon(
+                        Icons.wine_bar_outlined, 
+                        color: Color.fromARGB(255, 239, 107, 107),
+                        size: 50.0,
+                      ),
+                      label: Text('Yes',
+                        style: TextStyle(
+                          color: Color.fromARGB(255, 239, 107, 107),
+                          fontSize: 16,
+                          fontStyle: FontStyle.normal,
+                          fontWeight: FontWeight.bold,
+                        )
+                      ),
+                      onPressed: () => answerQuestion(true),
+                    ),
+          
+            
           SizedBox(height: 10),
-          ElevatedButton(
-            onPressed: () => answerQuestion(false),
-            child: Text('No'),
-             ),
+          ElevatedButton.icon(
+                      icon: Icon(
+                        Icons.no_drinks_outlined, 
+                        color:Color.fromARGB(255, 119, 234, 140), 
+                        size: 50.0,
+                      ),
+                      label: Text('No',
+                        style: TextStyle(
+                          color:Color.fromARGB(255, 119, 234, 140), 
+                          fontSize: 16,
+                          fontStyle: FontStyle.normal,
+                          fontWeight: FontWeight.bold,
+                        )
+                      ),
+                      onPressed: () => answerQuestion(false),
+                    ),
+
         ],
       )
       

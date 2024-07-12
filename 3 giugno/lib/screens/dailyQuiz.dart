@@ -28,12 +28,12 @@ class _QuizPageState extends State<QuizPage> {
   int currentQuestionIndex = 0;
 
  final List<Question> questions = [
-    Question(questionText: "Drinking increases the risk of heart attack", isTrue: true),
-    Question(questionText: "Cocaine promotes hair growth", isTrue: false),
-    Question(questionText: "Alcohol warms you up", isTrue: false),
-    Question(questionText: "Alcohol improves sexual performance", isTrue: false),
-    Question(questionText: "By drinking the same amount of alcohol, women get drunk faster than men", isTrue: true),
-    Question(questionText:"Red wine is good for the blood", isTrue:false),
+    Question(questionText: "Is true that drinking increases the risk of heart attack?", isTrue: true),
+    Question(questionText: "Is true that cocaine promotes hair growth?", isTrue: false),
+    Question(questionText: "Is true that alcohol warms you up?", isTrue: false),
+    Question(questionText: "Is true that alcohol improves sexual performance?", isTrue: false),
+    Question(questionText: "Is true that by drinking the same amount of alcohol, women get drunk faster than men?", isTrue: true),
+    Question(questionText:"Is true that red wine is good for the blood?", isTrue:false),
     // Aggiungi altre domande...
   ];
 
@@ -67,7 +67,8 @@ class _QuizPageState extends State<QuizPage> {
             => _toHomePage(context), icon: Icon(Icons.arrow_back)
         )
       ),
-      body: currentQuestionIndex < questions.length
+      body:
+      currentQuestionIndex < questions.length
           ? QuizQuestion(
               question: questions[currentQuestionIndex],
               answerQuestion: answerQuestion,
@@ -104,21 +105,43 @@ class QuizQuestion extends StatelessWidget {
             textAlign: TextAlign.center,
           ),
           SizedBox(height: 20),
-          ElevatedButton(
-            onPressed: () => answerQuestion(true),
-            child: Text('True'),
-          ),
+          ElevatedButton.icon(
+                      icon: Icon(
+                        Icons.check, 
+                        color:Color.fromARGB(255, 19, 135, 36), 
+                        size: 50.0,
+                      ),
+                      label: Text('True',
+                        style: TextStyle(
+                          color:Color.fromARGB(255, 19, 135, 36),
+                          fontSize: 16,
+                          fontStyle: FontStyle.normal,
+                          fontWeight: FontWeight.bold,
+                        )
+                      ),
+                      onPressed: () => answerQuestion(true),
+                    ),
+          
           SizedBox(height: 10),
-          ElevatedButton(
-            onPressed: () => answerQuestion(false),
-            child: Text('False'),
-             ),
+          ElevatedButton.icon(
+                      icon: Icon(
+                        Icons.close, 
+                        color: Color.fromARGB(255, 214, 18, 18), 
+                        size: 50.0,
+                      ),
+                      label: Text('False',
+                        style: TextStyle(
+                          color: Color.fromARGB(255, 214, 18, 18),
+                          fontSize: 16,
+                          fontStyle: FontStyle.normal,
+                          fontWeight: FontWeight.bold,
+                        )
+                      ),
+                      onPressed: () => answerQuestion(false),
+                    ),
         ],
       )
-      
-     
     );
-    
   }
 }
 
@@ -142,12 +165,13 @@ class QuizResult extends StatelessWidget {
                     child: Text('Finish!',
                       style: TextStyle(
                         fontSize: 40,
+                        fontWeight: FontWeight.bold,
                         foreground: Paint()
                         ..shader = ui.Gradient.linear(
                           const Offset(0, 20),
                           const Offset(250, 20),
                           <Color> [
-                            Color.fromARGB(255, 33, 40, 243).withOpacity(0.5),
+                            Color.fromARGB(255, 0, 8, 255).withOpacity(0.5),
                             Color.fromARGB(255, 3, 191, 248).withOpacity(0.5),
                           ]
                         )

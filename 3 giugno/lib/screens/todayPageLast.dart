@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:project_test1/screens/homePage.dart';
+import 'dart:ui' as ui;
+
 
 void main() {
   runApp(MyApp());
@@ -52,8 +54,35 @@ class _TodayPageLastState extends State<TodayPageLast> {
                 mainAxisSize: MainAxisSize.max,
                 crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text('Today you have already given your answer. Come back Tomorrow! \n Have a nice day!'),
-                    Opacity(
+                    Expanded
+                      (child:
+                        Center(
+                          child:
+                          Text('Today you have already given your answer. \n Come back Tomorrow! \n Have a nice day!',
+                            style: TextStyle(
+                              fontFamily: 'Outfit',
+                              fontStyle: FontStyle.normal,
+                              fontWeight: FontWeight.bold,
+                              fontSize: 25,
+                              letterSpacing: 0,
+                              foreground: Paint()
+                              ..shader = ui.Gradient.linear(
+                                const Offset(0, 20),
+                                const Offset(250, 20),
+                                <Color> [
+                                  Color.fromARGB(255, 0, 8, 255).withOpacity(0.5),
+                                  Color.fromARGB(255, 6, 147, 190).withOpacity(0.5),
+                                ]
+                              )
+                            ),
+                            textAlign: TextAlign.center,
+                          )
+                        ),
+                      ),
+                  ],
+              ),
+            ), 
+            Opacity(
                       opacity: 0.1,
                       child: Align(
                         alignment: Alignment.center,
@@ -64,9 +93,6 @@ class _TodayPageLastState extends State<TodayPageLast> {
                           ),
                         ),
                     ),
-                  ],
-              ),
-            ), 
           ],
         ),
       ),

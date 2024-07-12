@@ -74,14 +74,21 @@ class _LoginPageState extends State<LoginPage> {
               decoration: BoxDecoration(borderRadius: BorderRadius.circular(10)),
               child: Column(
                 children: [
-                  ElevatedButton(
-                    child: Text('Login',
-                      style: TextStyle(
-                        color: Colors.blue,
-                        fontSize: 16,
-                      )
-                    ),
-                    onPressed: () async {
+                  ElevatedButton.icon(
+                      icon: Icon(
+                        Icons.login_outlined, 
+                        color:Colors.blue, 
+                        size: 50.0,
+                      ),
+                      label: Text('Login',
+                        style: TextStyle(
+                          color: Colors.blue,
+                          fontSize: 16,
+                          fontStyle: FontStyle.normal,
+                          fontWeight: FontWeight.bold,
+                        )
+                      ),
+                      onPressed: () async {
                       if(userController.text == 'fjUj9CGlJ5' && passwordController.text == '12345678!'){
                         final result = await ImpactService.authorize();
                         final message =
@@ -95,8 +102,9 @@ class _LoginPageState extends State<LoginPage> {
                           ..removeCurrentSnackBar()
                           ..showSnackBar(SnackBar(content: Text('Wrong username/password. Try again'))); //ALLERT
                       } //if
-                    }, //onPressed
-                  ),
+                    },
+                    ),
+
                 ], //children
               ),
             ),

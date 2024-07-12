@@ -83,6 +83,7 @@ class _MotivationPageState extends State<Motivation> {
                               fontSize: 18,
                               letterSpacing: 0,
                             ),
+                            textAlign: TextAlign.center,
                           ),
                         ),
                       )
@@ -126,6 +127,7 @@ class _MotivationPageState extends State<Motivation> {
                               fontSize: 18,
                               letterSpacing: 0,
                             ),
+                            textAlign: TextAlign.center,
                           ),
                         ),
                       ),
@@ -179,6 +181,7 @@ class _MotivationPageState extends State<Motivation> {
                               fontSize: 18,
                               letterSpacing: 0,
                             ),
+                            textAlign: TextAlign.center,
                           ),
                         ),
                       ),

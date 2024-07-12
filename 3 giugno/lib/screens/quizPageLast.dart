@@ -62,12 +62,13 @@ class _QuizPageLastState extends State<QuizPageLast> {
                       child: Text('Finish!',
                         style: TextStyle(
                           fontSize: 40,
+                          fontWeight: FontWeight.bold,
                           foreground: Paint()
                             ..shader = ui.Gradient.linear(
                             const Offset(0, 20),
                             const Offset(250, 20),
                             <Color> [
-                              Color.fromARGB(255, 33, 40, 243).withOpacity(0.5),
+                              Color.fromARGB(255, 0, 8, 255).withOpacity(0.5),
                               Color.fromARGB(255, 3, 191, 248).withOpacity(0.5),
                             ]
                           )
