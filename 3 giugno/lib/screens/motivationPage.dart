@@ -16,11 +16,11 @@ class _MotivationPageState extends State<Motivation> {
       backgroundColor: Colors.white,
        // backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
       appBar: AppBar(    
-        title: Text('Why',
+        title: Text('MOTIVATION',
           style: TextStyle(
             fontFamily: 'Outfit',
-            fontStyle: FontStyle.normal,
-            fontWeight: FontWeight.normal,
+            fontStyle: FontStyle.italic,
+            fontWeight: FontWeight.bold,
             color: Colors.blue,
             fontSize: 30,
             letterSpacing: 0,

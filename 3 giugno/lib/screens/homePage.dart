@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:project_test1/models/score.dart';
 import 'package:project_test1/models/quiz.dart';
+import 'package:project_test1/models/sus.dart';
 import 'package:project_test1/models/today.dart';
 import 'package:provider/provider.dart';
 import 'dart:ui' as ui;
@@ -65,7 +66,7 @@ class HomePage extends StatelessWidget {
                 )
               ),
               
-              // PRIMA RIGA
+/// PRIMA RIGA
               Expanded(
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -111,6 +112,7 @@ class HomePage extends StatelessWidget {
                   ], //children                 
                 ),
               ),
+
               // FRASE: YOU CAN DO IT
               Expanded(
                 child: Text('YOU CAN DO IT!',
@@ -129,7 +131,7 @@ class HomePage extends StatelessWidget {
                 )
               ),
 
-              // SECONDA RIGA
+/// SECONDA RIGA
               Expanded(
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -152,7 +154,7 @@ class HomePage extends StatelessWidget {
                       onPressed: (){
                         if ((Provider.of<TodayModel>(context, listen: false).today) == false) {
                           Navigator.push (context, MaterialPageRoute(builder:(context) => TodayPage()));
-                          Provider.of<TodayModel>(context, listen: false).clickToday();
+                          
                         } else{
                           Navigator.push (context, MaterialPageRoute(builder:(context) => TodayPageLast()));
                         }
@@ -176,7 +178,6 @@ class HomePage extends StatelessWidget {
                       onPressed: () {
                         if((Provider.of<QuizModel>(context, listen: false).quiz) == false){
                           Navigator.push (context, MaterialPageRoute(builder:(context) => QuizPage()));
-                          Provider.of<QuizModel>(context, listen: false).clickQuiz();
                         }else{
                           Navigator.push (context, MaterialPageRoute(builder:(context) => QuizPageLast()));
                         }
@@ -203,7 +204,7 @@ class HomePage extends StatelessWidget {
                 )
               ),
 
-              //TERZA RIGA
+///TERZA RIGA
               Expanded(
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -261,11 +262,11 @@ class HomePage extends StatelessWidget {
                   children: [
                     ElevatedButton.icon(
                       icon: Icon(
-                        Icons.reset_tv_outlined, 
+                        Icons.adb_outlined, 
                         color:Colors.blue, 
                         size:30.0,
                       ),
-                      label: Text('Reset score',
+                      label: Text('Debug',
                         style: TextStyle(
                           color: Colors.blue,
                           fontSize: 13,
@@ -277,13 +278,12 @@ class HomePage extends StatelessWidget {
                         Provider.of<ScoreModel>(context, listen: false).resetScore();
                         Provider.of<QuizModel>(context, listen: false).resetQuiz();
                         Provider.of<TodayModel>(context, listen: false).resetToday();
+                        Provider.of<SusModel>(context, listen: false).resetSus();
                       },
                     ),
                   ],                  
                 ),
               ),
-
-
             ], //children
           ),
         ),
@@ -331,7 +331,7 @@ class HomePage extends StatelessWidget {
             ),
             ListTile(
               leading: Icon(
-                Icons.logout,
+                Icons.logout_outlined,
                 color: Colors.blue
               ),
               title: Text('Logout'),

@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:project_test1/models/quiz.dart';
 import 'package:project_test1/models/sus.dart';
 import 'package:project_test1/screens/homePage.dart';
 import 'package:provider/provider.dart';
@@ -63,12 +64,16 @@ class _QuizPageState extends State<QuizPage> {
         centerTitle: true,
         elevation: 2,
         leading: IconButton(
-          onPressed: () 
-            => _toHomePage(context), icon: Icon(Icons.arrow_back)
+          icon: Icon(Icons.arrow_back),
+          onPressed: (){
+            if(currentQuestionIndex == 6){
+              Provider.of<QuizModel>(context, listen: false).clickQuiz();
+            }
+            _toHomePage(context);
+          }
         )
       ),
-      body:
-      currentQuestionIndex < questions.length
+      body: currentQuestionIndex < questions.length
           ? QuizQuestion(
               question: questions[currentQuestionIndex],
               answerQuestion: answerQuestion,
@@ -178,8 +183,6 @@ class QuizResult extends StatelessWidget {
                       ),
                     )
                   ),
-
-                  
                   Text('Your score is $sus/$totalQuestions',
                     style: TextStyle(fontSize: 20),
                   ),

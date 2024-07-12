@@ -4,9 +4,9 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 class SusModel extends ChangeNotifier {
   int _sus = 0;
-
+ 
   int get sus => _sus;
-
+ 
   SusModel() {
     _loadSus();
   }
@@ -24,6 +24,12 @@ class SusModel extends ChangeNotifier {
 
   void incrementSus() {
     _sus++;
+    _saveSus();
+    notifyListeners();
+  }
+
+  void resetSus() {
+    _sus = 0;
     _saveSus();
     notifyListeners();
   }

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:project_test1/models/score.dart';
+import 'package:project_test1/models/today.dart';
 import 'package:project_test1/provider/data_provider.dart';
 import 'package:project_test1/screens/homePage.dart';
 import 'package:provider/provider.dart';
@@ -150,7 +151,10 @@ class QuizQuestion extends StatelessWidget {
                           fontWeight: FontWeight.bold,
                         )
                       ),
-                      onPressed: () => answerQuestion(true),
+                      onPressed: (){
+                        answerQuestion(true);
+                        Provider.of<TodayModel>(context, listen: false).clickToday(); 
+                      }
                     ),
           
             
@@ -169,7 +173,10 @@ class QuizQuestion extends StatelessWidget {
                           fontWeight: FontWeight.bold,
                         )
                       ),
-                      onPressed: () => answerQuestion(false),
+                      onPressed: (){
+                        answerQuestion(false);
+                        Provider.of<TodayModel>(context, listen: false).clickToday();
+                      }
                     ),
 
         ],

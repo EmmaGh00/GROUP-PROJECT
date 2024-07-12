@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'dart:ui' as ui;
 
 //import 'package:shared_preferences/shared_preferences.dart';
 import 'package:project_test1/screens/cinemaAward.dart';
@@ -54,12 +55,20 @@ class _AwardsPageState extends State<AwardsPage> {
                   children: [
                     SizedBox(height:20),
                     Text('Your score is: ${Provider.of<ScoreModel>(context).score}',
-                        style: TextStyle(fontFamily: 'Arial',
-                        fontSize: 23.0,
-                        fontStyle: FontStyle.normal,
-                        fontWeight: FontWeight.bold,
-                        letterSpacing: 0.2)
-                    ),
+                        style: TextStyle(
+                          fontSize: 30,
+                          fontWeight: FontWeight.bold,
+                          foreground: Paint()
+                            ..shader = ui.Gradient.linear(
+                            const Offset(0, 20),
+                            const Offset(250, 20),
+                            <Color> [
+                              Color.fromARGB(255, 0, 8, 255).withOpacity(0.5),
+                              Color.fromARGB(255, 3, 191, 248).withOpacity(0.5),
+                            ]
+                          )
+                        ),
+                      ),
                   ],
                 ),
 
@@ -88,7 +97,13 @@ class _AwardsPageState extends State<AwardsPage> {
                               height: 200,
                             ),
                             SizedBox(height:5),
-                            Text('CINEMA - 150 pt', style: TextStyle(fontSize:20))
+                            Text('CINEMA - 150 pt', 
+                              style: TextStyle(
+                                fontSize:20,
+                                fontStyle: FontStyle.italic,
+                                fontWeight: FontWeight.bold,
+                              )
+                            )
                           ]
                         )
                       ),
@@ -113,7 +128,13 @@ class _AwardsPageState extends State<AwardsPage> {
                               height: 200,
                             ),
                             SizedBox(height:5),
-                            Text('FITNESS - 200 pt', style: TextStyle(fontSize:20))
+                            Text('FITNESS - 200 pt', 
+                              style: TextStyle(
+                                fontSize:20,
+                                fontStyle: FontStyle.italic,
+                                fontWeight: FontWeight.bold,
+                              )
+                            )
                           ]
                         ),  
                       ),
@@ -144,7 +165,13 @@ class _AwardsPageState extends State<AwardsPage> {
                               height: 200,
                             ),
                             SizedBox(height:5),
-                            Text('PARK - 250 pt', style: TextStyle(fontSize:20))
+                            Text('PARK - 250 pt', 
+                              style: TextStyle(
+                                fontSize:20,
+                                fontStyle: FontStyle.italic,
+                                fontWeight: FontWeight.bold,
+                              )
+                            )
                           ]
                         )
                       ),
@@ -169,7 +196,13 @@ class _AwardsPageState extends State<AwardsPage> {
                               height: 200,
                             ),
                             SizedBox(height:5),
-                            Text('PARK - 250 pt', style: TextStyle(fontSize:20))
+                            Text('PARK - 250 pt', 
+                              style: TextStyle(
+                                fontSize:20,
+                                fontStyle: FontStyle.italic,
+                                fontWeight: FontWeight.bold,
+                              )
+                            )
                           ]
                         )
                       ),
