@@ -65,14 +65,14 @@ class _MyDiaryPageState extends State<MyDiaryPage> {
       backgroundColor: Colors.white,
        // backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
       appBar: AppBar(
-        title: Text('MyDiary',
+        title: Text('My Diary',
           style: TextStyle(
-            fontFamily: 'Outfit',
-            fontStyle: FontStyle.normal,
-            fontWeight: FontWeight.normal,
+            fontFamily: 'Times New Roman',
+            fontStyle: FontStyle.italic,
+            fontWeight: FontWeight.bold,
             color: Colors.blue,
             fontSize: 30,
-            letterSpacing: 0,
+            letterSpacing: 0.5,
           ),
         ),
         centerTitle: true,
@@ -97,6 +97,16 @@ class _MyDiaryPageState extends State<MyDiaryPage> {
               child:
                 Column(
                   children: [
+                    Text('How was your day? \nWhat emotions did you feel?',
+                      style: TextStyle(
+                        fontFamily: 'Times New Roman',
+                        fontStyle: FontStyle.italic,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.black,
+                        fontSize: 20,
+                        letterSpacing: 0,
+                      ),
+                    ),
                     Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: Row(
@@ -105,7 +115,7 @@ class _MyDiaryPageState extends State<MyDiaryPage> {
                             child: TextField(
                               controller: _controller,
                               decoration: InputDecoration(
-                                labelText: 'Keep a diary of your thoughts, write down them here.',
+                                labelText: 'Keep a diary of your thoughts, \nwrite down them here.',
                               ),
                             ),
                           ),
@@ -129,7 +139,6 @@ class _MyDiaryPageState extends State<MyDiaryPage> {
                   ],
                 ),
             ),
-
             Opacity(
               opacity: 0.1,
               child: Align(

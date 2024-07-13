@@ -29,12 +29,12 @@ class _AwardsPageState extends State<AwardsPage> {
       appBar: AppBar(    
         title: Text('Awards',
           style: TextStyle(
-            fontFamily: 'Outfit',
-            fontStyle: FontStyle.normal,
-            fontWeight: FontWeight.normal,
+            fontFamily: 'Times New Roman',
+            fontStyle: FontStyle.italic,
+            fontWeight: FontWeight.bold,
             color: Colors.blue,
-            fontSize: 25,
-            letterSpacing: 0,
+            fontSize: 30,
+            letterSpacing: 0.5,
           ),
         ),
         centerTitle: true,
@@ -57,7 +57,9 @@ class _AwardsPageState extends State<AwardsPage> {
                     Text('Your score is: ${Provider.of<ScoreModel>(context).score}',
                         style: TextStyle(
                           fontSize: 30,
+                          fontStyle: FontStyle.italic,
                           fontWeight: FontWeight.bold,
+                          fontFamily: 'Times New Roman',
                           foreground: Paint()
                             ..shader = ui.Gradient.linear(
                             const Offset(0, 20),
@@ -102,6 +104,7 @@ class _AwardsPageState extends State<AwardsPage> {
                                 fontSize:20,
                                 fontStyle: FontStyle.italic,
                                 fontWeight: FontWeight.bold,
+                                fontFamily: 'Times New Roman',
                               )
                             )
                           ]
@@ -133,6 +136,7 @@ class _AwardsPageState extends State<AwardsPage> {
                                 fontSize:20,
                                 fontStyle: FontStyle.italic,
                                 fontWeight: FontWeight.bold,
+                                fontFamily: 'Times New Roman',
                               )
                             )
                           ]
@@ -170,6 +174,7 @@ class _AwardsPageState extends State<AwardsPage> {
                                 fontSize:20,
                                 fontStyle: FontStyle.italic,
                                 fontWeight: FontWeight.bold,
+                                fontFamily: 'Times New Roman',
                               )
                             )
                           ]
@@ -201,6 +206,7 @@ class _AwardsPageState extends State<AwardsPage> {
                                 fontSize:20,
                                 fontStyle: FontStyle.italic,
                                 fontWeight: FontWeight.bold,
+                                fontFamily: 'Times New Roman',
                               )
                             )
                           ]

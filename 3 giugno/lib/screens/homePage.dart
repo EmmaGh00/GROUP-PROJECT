@@ -33,12 +33,12 @@ class HomePage extends StatelessWidget {
         //title: Text(HomePage.routename,
         title: Text('Hello, Giacomo!',
           style: TextStyle(
-            fontFamily: 'Outfit',
+            fontFamily: 'Times New Roman',
             fontStyle: FontStyle.italic,
             fontWeight: FontWeight.bold,
             color: Colors.blue,
             fontSize: 30,
-            letterSpacing: 0,
+            letterSpacing: 0.5,
           ),
         ),
       ),
@@ -53,6 +53,9 @@ class HomePage extends StatelessWidget {
                 child: Text('Points: ${Provider.of<ScoreModel>(context).score}',
                   style: TextStyle(
                     fontSize: 40,
+                    fontStyle: FontStyle.italic,
+                    fontFamily: 'Times New Roman', 
+                    letterSpacing:0.5,
                     foreground: Paint()
                       ..shader = ui.Gradient.linear(
                         const Offset(0, 20),
@@ -84,6 +87,8 @@ class HomePage extends StatelessWidget {
                           fontSize: 16,
                           fontStyle: FontStyle.normal,
                           fontWeight: FontWeight.bold,
+                          fontFamily: 'Times New Roman', 
+                          letterSpacing:0.5,
                         )
                       ),
                       onPressed: () {
@@ -103,6 +108,8 @@ class HomePage extends StatelessWidget {
                           fontSize: 16,
                           fontStyle: FontStyle.normal,
                           fontWeight: FontWeight.bold,
+                          fontFamily: 'Times New Roman', 
+                          letterSpacing:0.5,
                         )
                       ),
                       onPressed: () {
@@ -118,6 +125,9 @@ class HomePage extends StatelessWidget {
                 child: Text('YOU CAN DO IT!',
                   style: TextStyle(
                     fontSize: 40,
+                    fontStyle: FontStyle.italic,
+                    fontFamily: 'Times New Roman', 
+                    letterSpacing:0.5,
                     foreground: Paint()
                       ..shader = ui.Gradient.linear(
                         const Offset(0, 20),
@@ -141,7 +151,7 @@ class HomePage extends StatelessWidget {
                       icon: Icon(
                         Icons.today, 
                         color:Colors.blue, 
-                        size:50.0,
+                        size: 50.0,
                       ),
                       label: Text('Today',
                         style: TextStyle(
@@ -149,6 +159,8 @@ class HomePage extends StatelessWidget {
                           fontSize: 16,
                           fontStyle: FontStyle.normal,
                           fontWeight: FontWeight.bold,
+                          fontFamily: 'Times New Roman', 
+                          letterSpacing:0.5,
                         ),
                       ),
                       onPressed: (){
@@ -173,6 +185,8 @@ class HomePage extends StatelessWidget {
                           fontSize: 16,
                           fontStyle: FontStyle.normal,
                           fontWeight: FontWeight.bold,
+                          fontFamily: 'Times New Roman', 
+                          letterSpacing:0.5,
                         )
                       ),
                       onPressed: () {
@@ -191,6 +205,9 @@ class HomePage extends StatelessWidget {
                 child: Text('BELIEVE IN YOU!',
                   style: TextStyle(
                     fontSize: 40,
+                    fontStyle: FontStyle.italic,
+                    fontFamily: 'Times New Roman', 
+                    letterSpacing:0.5,
                     foreground: Paint()
                       ..shader = ui.Gradient.linear(
                         const Offset(0, 20),
@@ -216,12 +233,14 @@ class HomePage extends StatelessWidget {
                         color:Colors.blue, 
                         size:50.0,
                       ),
-                      label: Text('My Diary',
+                      label: Text('MyDiary',
                         style: TextStyle(
                           color: Colors.blue,
                           fontSize: 16,
                           fontStyle: FontStyle.normal,
                           fontWeight: FontWeight.bold,
+                          fontFamily: 'Times New Roman', 
+                          letterSpacing:0,
                         ),
                       ),
                       onPressed: (){
@@ -238,9 +257,10 @@ class HomePage extends StatelessWidget {
                       label: Text('Emergency',
                         style: TextStyle(
                           color: Colors.blue,
-                          fontSize: 16,
+                          fontSize: 14,
                           fontStyle: FontStyle.normal,
                           fontWeight: FontWeight.bold,
+                          fontFamily: 'Times New Roman', 
                         )
                       ),
                       onPressed: () {
@@ -269,9 +289,11 @@ class HomePage extends StatelessWidget {
                       label: Text('Debug',
                         style: TextStyle(
                           color: Colors.blue,
-                          fontSize: 13,
+                          fontSize: 12,
                           fontStyle: FontStyle.normal,
                           fontWeight: FontWeight.bold,
+                          fontFamily: 'Times New Roman', 
+                          letterSpacing:0.5,
                         ),
                       ),
                       onPressed: (){
@@ -306,8 +328,8 @@ class HomePage extends StatelessWidget {
                     color: Colors.white,
                     fontStyle: FontStyle.italic,
                     fontWeight: FontWeight.bold,
-                    fontSize:20.0,
-                    fontFamily: 'Arial', //font, vedi bene il paccheto google font
+                    fontSize:30.0,
+                    fontFamily: 'Times New Roman', //font, vedi bene il paccheto google font
                     letterSpacing:0.5,
                   ),
                 ),
@@ -315,7 +337,7 @@ class HomePage extends StatelessWidget {
             ),
             ListTile(
               leading: Icon(
-                Icons.person,
+                Icons.person_outlined,
                 color: Colors.blue
               ),
               title: Text('Profile'),
@@ -323,19 +345,11 @@ class HomePage extends StatelessWidget {
             ),
             ListTile(
               leading: Icon(
-                Icons.star,
+                Icons.star_border_outlined,
                 color: Colors.blue
               ),
               title: Text('Awards'),
               onTap: () => _toAwardsPage(context),
-            ),
-            ListTile(
-              leading: Icon(
-                Icons.logout_outlined,
-                color: Colors.blue
-              ),
-              title: Text('Logout'),
-              onTap: () => _toLoginPage(context),
             ),
             ListTile(
               leading: Icon(
@@ -344,6 +358,14 @@ class HomePage extends StatelessWidget {
               ),
               title: Text('Privacy'),
               onTap: () => _toPrivacyPage(context),
+            ),
+            ListTile(
+              leading: Icon(
+                Icons.logout_outlined,
+                color: Colors.blue
+              ),
+              title: Text('Logout'),
+              onTap: () => _toLoginPage(context),
             ),
             Spacer(flex:20),
           ],  // children

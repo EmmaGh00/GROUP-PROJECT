@@ -78,10 +78,12 @@ class _ProfilePageState extends State<ProfilePage> {
       appBar: AppBar(
         title: Text('Personal Data',
          style: TextStyle(
-            fontFamily: 'Outfit',
+            fontFamily: 'Times New Roman',
+            fontStyle: FontStyle.italic,
+            fontWeight: FontWeight.bold,
             color: Colors.blue,
-            fontSize: 22,
-            letterSpacing: 0,
+            fontSize: 30,
+            letterSpacing: 0.5,
           ),
         ),
         centerTitle: true,

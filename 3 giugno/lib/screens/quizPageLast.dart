@@ -34,12 +34,12 @@ class _QuizPageLastState extends State<QuizPageLast> {
       appBar: AppBar(
         title: Text('Daily quiz',
           style: TextStyle(
-            fontFamily: 'Outfit',
-            fontStyle: FontStyle.normal,
-            fontWeight: FontWeight.normal,
+            fontFamily: 'Times New Roman',
+            fontStyle: FontStyle.italic,
+            fontWeight: FontWeight.bold,
             color: Colors.blue,
             fontSize: 30,
-            letterSpacing: 0,
+            letterSpacing: 0.5,
           ),
         ),
         centerTitle: true,

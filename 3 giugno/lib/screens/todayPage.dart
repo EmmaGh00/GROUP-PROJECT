@@ -57,12 +57,12 @@ class _TodayPageState extends State<TodayPage> {
       appBar: AppBar(
         title: Text('Today',
           style: TextStyle(
-            fontFamily: 'Outfit',
-            fontStyle: FontStyle.normal,
-            fontWeight: FontWeight.normal,
+            fontFamily: 'Times New Roman',
+            fontStyle: FontStyle.italic,
+            fontWeight: FontWeight.bold,
             color: Colors.blue,
             fontSize: 30,
-            letterSpacing: 0,
+            letterSpacing: 0.5,
           ),
         ),
         centerTitle: true,
@@ -77,7 +77,7 @@ class _TodayPageState extends State<TodayPage> {
         child: Stack(
           children: [
             Expanded(child:
-            SizedBox(height:150),),
+            SizedBox(height: 500),),
             Padding(
               padding: EdgeInsets.all(24),
               child: Column(

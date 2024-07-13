@@ -22,12 +22,12 @@ class _MonitoringPageState extends State<Monitoring> {
       appBar: AppBar(
           title: Text('Real Time Value',
             style: TextStyle(
-              fontFamily: 'Outfit',
-              fontStyle: FontStyle.normal,
-              fontWeight: FontWeight.normal,
+              fontFamily: 'Times New Roman',
+              fontStyle: FontStyle.italic,
+              fontWeight: FontWeight.bold,
               color: Colors.blue,
               fontSize: 30,
-              letterSpacing: 0,
+              letterSpacing: 0.5,
             ),
           ),
           centerTitle: true,
@@ -51,7 +51,16 @@ class _MonitoringPageState extends State<Monitoring> {
                 // HR REST DATA
                 Consumer<DataProvider>(builder: (context, data, child) {
                   if (data.restData.length == 0){
-                    return Text('No HR rest data to display');
+                    return Text('No HR rest data to display',
+                      style: TextStyle(
+                        fontFamily: 'Times New Roman',
+                        fontStyle: FontStyle.italic,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.black,
+                        fontSize: 15,
+                        letterSpacing: 0.5,
+                      ),
+                    );
                   } else {
                     return RestDataPlot(restData: data.restData);
                   }
@@ -70,6 +79,7 @@ class _MonitoringPageState extends State<Monitoring> {
                           fontSize: 16,
                           fontStyle: FontStyle.normal,
                           fontWeight: FontWeight.bold,
+                          fontFamily: 'Times New Roman'
                         )
                       ),                
                   onPressed: (){
@@ -85,7 +95,16 @@ class _MonitoringPageState extends State<Monitoring> {
                 // SLEEP DATA
                 Consumer<DataProvider>(builder: (context, data, child) {
                   if (data.sleepData.length == 0){
-                    return Text('No sleep data to display');
+                    return Text('No sleep data to display',
+                      style: TextStyle(
+                        fontFamily: 'Times New Roman',
+                        fontStyle: FontStyle.italic,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.black,
+                        fontSize: 15,
+                        letterSpacing: 0.5,
+                      ),
+                    );
                   } else {
                     return SleepDataPlot(sleepData: data.sleepData);
                   }
@@ -104,6 +123,7 @@ class _MonitoringPageState extends State<Monitoring> {
                           fontSize: 16,
                           fontStyle: FontStyle.normal,
                           fontWeight: FontWeight.bold,
+                          fontFamily: 'Times New Roman'
                         )
                       ),                
                   onPressed: (){
@@ -120,7 +140,16 @@ class _MonitoringPageState extends State<Monitoring> {
                 // HR DATA
                 Consumer<DataProvider>(builder: (context, data, child) {
                   if (data.heartData.length == 0){
-                    return Text('No HR data to display');
+                    return Text('No HR data to display',
+                      style: TextStyle(
+                        fontFamily: 'Times New Roman',
+                        fontStyle: FontStyle.italic,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.black,
+                        fontSize: 15,
+                        letterSpacing: 0.5,
+                      ),
+                    );
                   } else {
                     return HRDataPlot(heartData: data.heartData);
                   }
@@ -139,6 +168,7 @@ class _MonitoringPageState extends State<Monitoring> {
                           fontSize: 16,
                           fontStyle: FontStyle.normal,
                           fontWeight: FontWeight.bold,
+                          fontFamily: 'Times New Roman'
                         )
                       ),                
                   onPressed: (){

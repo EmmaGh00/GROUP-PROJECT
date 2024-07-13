@@ -25,12 +25,12 @@ class _PrivacyPageState extends State<PrivacyPage> {
       appBar: AppBar(
         title: Text('Privacy',
           style: TextStyle(
-            fontFamily: 'Outfit',
-            fontStyle: FontStyle.normal,
-            fontWeight: FontWeight.normal,
+            fontFamily: 'Times New Roman',
+            fontStyle: FontStyle.italic,
+            fontWeight: FontWeight.bold,
             color: Colors.blue,
             fontSize: 30,
-            letterSpacing: 0,
+            letterSpacing: 0.5,
           ),
         ),
         centerTitle: true,
@@ -52,7 +52,7 @@ class _PrivacyPageState extends State<PrivacyPage> {
                   children: [
                     Text('This app is compliant to GDPR (General Data Regulation Protection), so you have the rights:',
                       style: TextStyle(
-                        fontFamily: 'Outfit',
+                        fontFamily: 'Times New Roman',
                         fontStyle: FontStyle.italic,
                         fontWeight: FontWeight.bold,
                         color: Colors.black,
@@ -62,7 +62,7 @@ class _PrivacyPageState extends State<PrivacyPage> {
                     ),
                     Text('- to be informed about the collection and use of your personal data; \n- to access and receive copy of your personal data; \n- to have inaccurate personal data rectified or completed; \n- to have personal data erased; \n- to object to the processing of personal data in certain circumstances; \n- to restrict processing of you data; \n- to move, copy or transfer your personal data easily to another controller; \n- not to be subject to automated decision making and profiling.',
                       style: TextStyle(
-                        fontFamily: 'Outfit',
+                        fontFamily: 'Times New Roman',
                         fontStyle: FontStyle.italic,
                         fontWeight: FontWeight.normal,
                         color: Colors.black,
@@ -71,7 +71,7 @@ class _PrivacyPageState extends State<PrivacyPage> {
                       )
                     ),
                     SizedBox(
-                      height: 130,
+                      height: 110,
                     ),
                     Center( 
                       child: ElevatedButton.icon(

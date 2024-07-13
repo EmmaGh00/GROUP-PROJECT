@@ -16,14 +16,14 @@ class _MotivationPageState extends State<Motivation> {
       backgroundColor: Colors.white,
        // backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
       appBar: AppBar(    
-        title: Text('MOTIVATION',
+        title: Text('Motivation',
           style: TextStyle(
-            fontFamily: 'Outfit',
+            fontFamily: 'Times New Roman',
             fontStyle: FontStyle.italic,
             fontWeight: FontWeight.bold,
             color: Colors.blue,
             fontSize: 30,
-            letterSpacing: 0,
+            letterSpacing: 0.5,
           ),
         ),
         centerTitle: true,
@@ -41,11 +41,20 @@ class _MotivationPageState extends State<Motivation> {
             // COLONNA
             Column(
               children: [ 
-                
+                SizedBox(height: 20),
+                Text('Remember what you are fighting for',
+                  style: TextStyle(
+                    fontFamily: 'Times New Roman',
+                    fontStyle: FontStyle.italic,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.black,
+                    fontSize: 20,
+                    letterSpacing: 0,
+                  ),
+                ),
                 // RIGA 1: Immagine - Frase
                 Expanded(
-                  child: Row(
-                    
+                  child: Row( 
                     children: [
                       Image.network(
                         'https://st.depositphotos.com/1646956/4302/v/450/depositphotos_43027069-stock-illustration-hand-drawing-cartoon-of-happy.jpg',

@@ -53,12 +53,12 @@ class _QuizPageState extends State<QuizPage> {
       appBar: AppBar(
         title: Text('Daily quiz',
           style: TextStyle(
-            fontFamily: 'Outfit',
-            fontStyle: FontStyle.normal,
-            fontWeight: FontWeight.normal,
+            fontFamily: 'Times New Roman',
+            fontStyle: FontStyle.italic,
+            fontWeight: FontWeight.bold,
             color: Colors.blue,
             fontSize: 30,
-            letterSpacing: 0,
+            letterSpacing: 0.5,
           ),
         ),
         centerTitle: true,
@@ -68,6 +68,8 @@ class _QuizPageState extends State<QuizPage> {
           onPressed: (){
             if(currentQuestionIndex == 6){
               Provider.of<QuizModel>(context, listen: false).clickQuiz();
+            } else if ((currentQuestionIndex > 0) && (currentQuestionIndex < 6) && ((Provider.of<QuizModel>(context, listen: false).quiz) == false)){
+              Provider.of<SusModel>(context, listen: false).resetSus();
             }
             _toHomePage(context);
           }

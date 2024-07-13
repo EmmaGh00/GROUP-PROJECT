@@ -22,12 +22,12 @@ class _EmergencyState extends State<Emergency> {
       appBar: AppBar(    
         title: Text('Emergency',
           style: TextStyle(
-            fontFamily: 'Outfit',
-            fontStyle: FontStyle.normal,
-            fontWeight: FontWeight.normal,
+            fontFamily: 'Times New Roman',
+            fontStyle: FontStyle.italic,
+            fontWeight: FontWeight.bold,
             color: Colors.blue,
             fontSize: 30,
-            letterSpacing: 0,
+            letterSpacing: 0.5,
           ),
         ),
         centerTitle: true,
@@ -51,11 +51,12 @@ class _EmergencyState extends State<Emergency> {
                       padding: EdgeInsetsDirectional.fromSTEB(16, 0, 0, 60),
                       child: Text('Emergency contact',
                         style: TextStyle(
-                            fontFamily: 'Arial',
-                            fontSize: 23.0,
-                            fontStyle: FontStyle.normal,
-                            fontWeight: FontWeight.bold,
-                            letterSpacing: 0.2,
+                          fontFamily: 'Times New Roman',
+                          fontStyle: FontStyle.italic,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.black,
+                          fontSize: 25,
+                          letterSpacing: 0,
                         ),
                       ),
                     ),
@@ -81,11 +82,11 @@ class _EmergencyState extends State<Emergency> {
                                 ),
                                 Text('ITALY GREEN NUMBER ALCOL',
                                   style: TextStyle (
-                                    fontFamily: 'Arial',
-                                    fontSize: 17.0,
-                                    fontStyle: FontStyle.normal,
+                                    fontFamily: ' Times New Roman',
+                                    fontSize: 20.0,
+                                    fontStyle: FontStyle.italic,
                                     fontWeight: FontWeight.normal,
-                                    letterSpacing: 0.2,
+                                    letterSpacing: 0,
                                   ),
                                 ),
                               ],
@@ -104,10 +105,10 @@ class _EmergencyState extends State<Emergency> {
                                     size: 24,
                                   ),
                                 ),
-                                Text('Phone: 800 63 20 00',
+                                Text(' Phone: 800 63 20 00',
                                   style: TextStyle(
                                       letterSpacing: 0,
-                                      fontFamily: 'Arial',
+                                      fontFamily: 'Times New Roman',
                                       fontSize: 18.0,
                                       fontStyle: FontStyle.normal,
                                       fontWeight: FontWeight.normal,
@@ -139,20 +140,20 @@ class _EmergencyState extends State<Emergency> {
                                     size: 24,
                                   ),
                                 ),
-                                Text('UNIQUE EMERGENCY ITALIAN NUMBER',
-                                  style: TextStyle(
-                                    fontFamily: 'Arial',
-                                    fontSize: 17.0,
-                                    fontStyle: FontStyle.normal,
+                                Text(' UNIQUE EMERGENCY ITALIAN \n NUMBER',
+                                  style: TextStyle (
+                                    fontFamily: ' Times New Roman',
+                                    fontSize: 20.0,
+                                    fontStyle: FontStyle.italic,
                                     fontWeight: FontWeight.normal,
-                                    letterSpacing: 0.2,
+                                    letterSpacing: 0,
                                   ),
                                 ),
                               ],
                             ),
                           ),
                           Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(0, 8,0, 0),
+                            padding: EdgeInsetsDirectional.fromSTEB(0, 8, 0, 0),
                             child: Row(
                               mainAxisSize: MainAxisSize.max,
                               children: [
@@ -164,10 +165,10 @@ class _EmergencyState extends State<Emergency> {
                                     size: 24,
                                   ),
                                 ),
-                                Text('Phone: 112 ',
+                                Text(' Phone: 112 ',
                                   style: TextStyle(
                                     letterSpacing: 0,
-                                    fontFamily: 'Arial',
+                                    fontFamily: 'Times New Roman',
                                     fontSize: 18.0,
                                     fontStyle: FontStyle.normal,
                                     fontWeight: FontWeight.normal,
@@ -180,6 +181,42 @@ class _EmergencyState extends State<Emergency> {
                       ),
                     ),
                   ],
+                ),
+              ),
+              Padding(
+                padding: EdgeInsetsDirectional.fromSTEB(0, 500, 0, 0),
+                child: Container(
+                  padding: EdgeInsets.all(5.0),
+                  margin: EdgeInsets.all(5.0),
+                  decoration: BoxDecoration(
+                    color: Color.fromARGB(0, 250, 158, 158),
+                    borderRadius: BorderRadius.circular(5.0),
+                    boxShadow: [
+                      BoxShadow(
+                        color:Color.fromARGB(0, 250, 158, 158),
+                        spreadRadius:2,
+                        blurRadius: 5,
+                        offset: Offset(0,3),
+                      )
+                    ]
+                  ),
+                  width: 400,
+                  height: 150,
+                  child: Align(
+                    alignment: Alignment.center,
+                    child: Text(
+                      'While you wait for help, remember to keep breathing and stay calm.\nThey are coming...',
+                      style: TextStyle(
+                        fontFamily: 'Times New Roman',
+                        fontStyle: FontStyle.italic,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.black,
+                        fontSize: 20,
+                        letterSpacing: 0,
+                      ),
+                      textAlign: TextAlign.center,
+                    ),
+                  ),
                 ),
               ),
               Opacity(

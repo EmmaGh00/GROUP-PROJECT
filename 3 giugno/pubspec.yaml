@@ -37,8 +37,7 @@ dependencies:
   intl: ^0.19.0                         #use fof format the data
   syncfusion_flutter_charts: ^25.1.42+1 #make the plot
   provider: ^6.1.2                      #need the state manager
-  list_operators: ^0.5.0
-
+  
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.6

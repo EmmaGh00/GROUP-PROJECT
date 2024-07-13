@@ -24,7 +24,7 @@ class _LoginPageState extends State<LoginPage> {
             fontStyle: FontStyle.italic,
             fontWeight: FontWeight.bold,
             fontSize: 30.0,
-            fontFamily: 'Arial', //font, vedi bene il paccheto google font
+            fontFamily: 'Times New Roman', 
             letterSpacing:0.5,
             color: Colors.blue,
           ),
@@ -83,9 +83,11 @@ class _LoginPageState extends State<LoginPage> {
                       label: Text('Login',
                         style: TextStyle(
                           color: Colors.blue,
-                          fontSize: 16,
+                          fontSize: 20,
                           fontStyle: FontStyle.normal,
                           fontWeight: FontWeight.bold,
+                          fontFamily: 'Times New Roman', 
+                          letterSpacing:0.5,
                         )
                       ),
                       onPressed: () async {
