@@ -23,6 +23,7 @@ void main() {
   );
 } //main
 
+
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
   
@@ -33,7 +34,10 @@ class MyApp extends StatelessWidget {
         child: MaterialApp(
       //debugShowCheckedModeBanner: false,
       //CREARE TEMA
+
       home: LoginPage())
     );
   } //build
 }//MyApp
+
+

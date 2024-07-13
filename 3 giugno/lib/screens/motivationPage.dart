@@ -33,14 +33,16 @@ class _MotivationPageState extends State<Motivation> {
             => _toHomePage(context), icon: Icon(Icons.arrow_back)
         )
       ),
-      body: SafeArea(
+      body:
+      
+      SafeArea(
         top: true,
         child: Stack(
           children: [
             
             // COLONNA
             Column(
-              children: [ 
+              children: [
                 SizedBox(height: 20),
                 Text('Remember what you are fighting for',
                   style: TextStyle(
@@ -48,7 +50,7 @@ class _MotivationPageState extends State<Motivation> {
                     fontStyle: FontStyle.italic,
                     fontWeight: FontWeight.bold,
                     color: Colors.black,
-                    fontSize: 20,
+                    fontSize: 18,
                     letterSpacing: 0,
                   ),
                 ),
@@ -58,8 +60,8 @@ class _MotivationPageState extends State<Motivation> {
                     children: [
                       Image.network(
                         'https://st.depositphotos.com/1646956/4302/v/450/depositphotos_43027069-stock-illustration-hand-drawing-cartoon-of-happy.jpg',
-                        width: 200,
-                        height: 200,
+                        width: 190,
+                        height: 160,
                         ),
 
                       Container(
@@ -77,8 +79,8 @@ class _MotivationPageState extends State<Motivation> {
                             )
                           ]
                         ),
-                        width: 200,
-                        height: 150,
+                        width: 190,
+                        height: 160,
                         
                         child: Align(
                           alignment: Alignment.center,
@@ -121,8 +123,8 @@ class _MotivationPageState extends State<Motivation> {
                             )
                           ]
                         ),
-                        width: 200,
-                        height: 150,
+                        width: 190,
+                        height: 160,
                         
                         child: Align(
                           alignment: Alignment.center,
@@ -143,8 +145,8 @@ class _MotivationPageState extends State<Motivation> {
 
                       Image.network(
                         'https://www.tuttotech.net/wp-content/uploads/2023/03/Apple-iOS-iPadOS-macOS-tvOS-watchOS-HomePod-04.jpg',
-                        width: 200,
-                        height: 200,
+                        width: 190,
+                        height: 160,
                         ),
                     ],
                   ),
@@ -156,8 +158,8 @@ class _MotivationPageState extends State<Motivation> {
                     children: [
                       Image.network(
                         'https://www.linksium.fr/uploads/meta-images/visuel-PredictTrail-v2.jpg',
-                        width: 200,
-                        height: 200,
+                        width: 190,
+                        height: 160,
                         ),
 
                       Container(
@@ -175,8 +177,8 @@ class _MotivationPageState extends State<Motivation> {
                             )
                           ]
                         ),
-                        width: 200,
-                        height: 150,
+                        width: 190,
+                        height: 160,
                         
                         child: Align(
                           alignment: Alignment.center,

@@ -56,7 +56,7 @@ class _PrivacyPageState extends State<PrivacyPage> {
                         fontStyle: FontStyle.italic,
                         fontWeight: FontWeight.bold,
                         color: Colors.black,
-                        fontSize: 23,
+                        fontSize: 18,
                         letterSpacing: 0,
                       ),
                     ),
@@ -66,7 +66,7 @@ class _PrivacyPageState extends State<PrivacyPage> {
                         fontStyle: FontStyle.italic,
                         fontWeight: FontWeight.normal,
                         color: Colors.black,
-                        fontSize: 20,
+                        fontSize: 15,
                         letterSpacing: 0,
                       )
                     ),
@@ -83,7 +83,7 @@ class _PrivacyPageState extends State<PrivacyPage> {
                         label: Text('Clear all data & reset score',
                           style: TextStyle(
                             color: Colors.blue,
-                            fontSize: 15,
+                            fontSize: 12,
                             fontStyle: FontStyle.normal,
                             fontWeight: FontWeight.bold,
                           )

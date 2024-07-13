@@ -5,6 +5,7 @@ import 'package:project_test1/models/quiz.dart';
 import 'package:project_test1/models/sus.dart';
 import 'package:project_test1/screens/homePage.dart';
 import 'package:provider/provider.dart';
+import 'package:project_test1/models/score.dart';
 import 'dart:ui' as ui;
 
 void main() {
@@ -41,6 +42,7 @@ class _QuizPageState extends State<QuizPage> {
   void answerQuestion(bool userAnswer) {
     if (questions[currentQuestionIndex].isTrue == userAnswer) {
       Provider.of<SusModel>(context, listen: false).incrementSus();
+      Provider.of<ScoreModel>(context, listen: false).incrementScore();
     }
     setState(() {
       currentQuestionIndex++;
@@ -70,6 +72,9 @@ class _QuizPageState extends State<QuizPage> {
               Provider.of<QuizModel>(context, listen: false).clickQuiz();
             } else if ((currentQuestionIndex > 0) && (currentQuestionIndex < 6) && ((Provider.of<QuizModel>(context, listen: false).quiz) == false)){
               Provider.of<SusModel>(context, listen: false).resetSus();
+              for (var k = 0; k < currentQuestionIndex; k++) {
+                Provider.of<ScoreModel>(context, listen: false).decrementScore();
+              }
             }
             _toHomePage(context);
           }

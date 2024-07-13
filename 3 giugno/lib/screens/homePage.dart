@@ -44,8 +44,8 @@ class HomePage extends StatelessWidget {
       ),
       body: Center(
         child: Container(
-          height: 400,
-          width: 350,
+          height: 600,
+          width: 370,
           decoration: BoxDecoration(borderRadius: BorderRadius.circular(10)),
           child: Column(
             children:[

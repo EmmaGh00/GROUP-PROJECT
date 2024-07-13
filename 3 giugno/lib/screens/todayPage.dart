@@ -34,9 +34,7 @@ class _TodayPageState extends State<TodayPage> {
   void answerQuestion(bool userAnswer) {
     
     if (questions[currentQuestionIndex].isTrue == userAnswer) {
-      //Provider.of<ScoreModel>(context, listen: false).increment10Score();
 
-      // DA TOGLIERE COMMENTO QUANDO SARANNO DEFINITE LE VARIABILI IN SHARED PREFERENCES
       var provider = Provider.of<DataProvider>(context, listen: false);
 
       if ((provider.restNum > 80) && (provider.sleepNum < 240) && (provider.HR_mean > 80)) {
