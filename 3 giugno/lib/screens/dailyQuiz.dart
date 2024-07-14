@@ -70,13 +70,12 @@ class _QuizPageState extends State<QuizPage> {
           onPressed: (){
             if(currentQuestionIndex == 6){
               Provider.of<QuizModel>(context, listen: false).clickQuiz();
+              _toHomePage(context);
             } else if ((currentQuestionIndex > 0) && (currentQuestionIndex < 6) && ((Provider.of<QuizModel>(context, listen: false).quiz) == false)){
-              Provider.of<SusModel>(context, listen: false).resetSus();
-              for (var k = 0; k < currentQuestionIndex; k++) {
-                Provider.of<ScoreModel>(context, listen: false).decrementScore();
-              }
+               ScaffoldMessenger.of(context)
+                          ..removeCurrentSnackBar()
+                          ..showSnackBar(SnackBar(content: Text('Finish all questions. Go on!')));
             }
-            _toHomePage(context);
           }
         )
       ),

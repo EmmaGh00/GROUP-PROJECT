@@ -44,16 +44,18 @@ class HomePage extends StatelessWidget {
       ),
       body: Center(
         child: Container(
-          height: 600,
+          height: 650,
           width: 370,
           decoration: BoxDecoration(borderRadius: BorderRadius.circular(10)),
           child: Column(
             children:[
+              SizedBox(height: 50),
               Expanded(
                 child: Text('Points: ${Provider.of<ScoreModel>(context).score}',
                   style: TextStyle(
-                    fontSize: 40,
+                    fontSize: 30,
                     fontStyle: FontStyle.italic,
+                    fontWeight: FontWeight.bold,
                     fontFamily: 'Times New Roman', 
                     letterSpacing:0.5,
                     foreground: Paint()
@@ -61,8 +63,8 @@ class HomePage extends StatelessWidget {
                         const Offset(0, 20),
                         const Offset(250, 20),
                         <Color> [
-                          Color.fromARGB(255, 33, 40, 243).withOpacity(0.5),
-                          Color.fromARGB(255, 3, 191, 248).withOpacity(0.5),
+                          Color.fromARGB(255, 211, 86, 223).withOpacity(0.5),
+                          Color.fromARGB(255, 105, 6, 141).withOpacity(0.5),
                         ]
                       )
                   ),
@@ -120,12 +122,15 @@ class HomePage extends StatelessWidget {
                 ),
               ),
 
+              SizedBox(height: 30),
+
               // FRASE: YOU CAN DO IT
               Expanded(
                 child: Text('YOU CAN DO IT!',
                   style: TextStyle(
-                    fontSize: 40,
+                    fontSize: 30,
                     fontStyle: FontStyle.italic,
+                    fontWeight: FontWeight.bold,
                     fontFamily: 'Times New Roman', 
                     letterSpacing:0.5,
                     foreground: Paint()
@@ -133,8 +138,8 @@ class HomePage extends StatelessWidget {
                         const Offset(0, 20),
                         const Offset(250, 20),
                         <Color> [
-                          Color.fromARGB(255, 33, 40, 243).withOpacity(0.5),
-                          Color.fromARGB(255, 3, 191, 248).withOpacity(0.5),
+                          Color.fromARGB(255, 211, 86, 223).withOpacity(0.5),
+                          Color.fromARGB(255, 105, 6, 141).withOpacity(0.5),
                         ]
                       )
                   ),
@@ -201,11 +206,14 @@ class HomePage extends StatelessWidget {
                 ),
               ),
 
+              SizedBox(height: 30),
+
               Expanded(
                 child: Text('BELIEVE IN YOU!',
                   style: TextStyle(
-                    fontSize: 40,
+                    fontSize: 30,
                     fontStyle: FontStyle.italic,
+                    fontWeight: FontWeight.bold,
                     fontFamily: 'Times New Roman', 
                     letterSpacing:0.5,
                     foreground: Paint()
@@ -213,8 +221,8 @@ class HomePage extends StatelessWidget {
                         const Offset(0, 20),
                         const Offset(250, 20),
                         <Color> [
-                          Color.fromARGB(255, 33, 40, 243).withOpacity(0.5),
-                          Color.fromARGB(255, 3, 191, 248).withOpacity(0.5),
+                          Color.fromARGB(255, 211, 86, 223).withOpacity(0.5),
+                          Color.fromARGB(255, 105, 6, 141).withOpacity(0.5),
                         ]
                       )
                   ),
