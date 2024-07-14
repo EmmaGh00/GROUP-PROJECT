@@ -39,11 +39,20 @@ class _TodayPageState extends State<TodayPage> {
 
       if ((provider.restNum > 80) && (provider.sleepNum < 240) && (provider.HR_mean > 80)) {
         Provider.of<ScoreModel>(context, listen: false).decrement10Score(); //decrement di 10 punti perchè ha mentito
+        ScaffoldMessenger.of(context)
+                          ..removeCurrentSnackBar()
+                          ..showSnackBar(SnackBar(content: Text('Not very good. You lied. Minus 10 points. Tomorrow try not to drink or to use substances.')));
       } else {
         Provider.of<ScoreModel>(context, listen: false).increment10Score(); // incremento di 5 punti perchè corretto
+        ScaffoldMessenger.of(context)
+                          ..removeCurrentSnackBar()
+                          ..showSnackBar(SnackBar(content: Text('Good job! Here it is 10 points.')));
       }
     } else {
       Provider.of<ScoreModel>(context, listen: false).decrement5Score(); //decrement di 5 punti per la sincerità
+      ScaffoldMessenger.of(context)
+                          ..removeCurrentSnackBar()
+                          ..showSnackBar(SnackBar(content: Text('Not very good, but at least you were honest. Minus 5 points. Tomorrow try not to drink or to use substances.')));
     } 
     Navigator.push(context, MaterialPageRoute(builder: (_) => HomePage()));
 
@@ -74,24 +83,11 @@ class _TodayPageState extends State<TodayPage> {
       Center(child:
         Column(children: [        
           SizedBox(height: 50),
-      /*SafeArea(
-        top: true,
-        child: Stack(
-          children: [
-            Padding(
-              padding: EdgeInsets.all(24),
-              child: Column(
-                mainAxisSize: MainAxisSize.max,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [*/
           QuizQuestion(
             question: questions[currentQuestionIndex],
             answerQuestion: answerQuestion,
             ),
-      /*          ],
-              
-            ),
-            ),*/
+
             Center(
             child:
             Opacity(
@@ -107,10 +103,6 @@ class _TodayPageState extends State<TodayPage> {
                     ),
         
             ),
-        /*  ],
-        ),
-      ),
-    );*/
         ],
       ),
       ),
@@ -161,7 +153,7 @@ class QuizQuestion extends StatelessWidget {
                       ),
                       onPressed: (){
                         answerQuestion(true);
-                        Provider.of<TodayModel>(context, listen: false).clickToday(); 
+                        Provider.of<TodayModel>(context, listen: false).clickToday();
                       }
                     ),
           
