@@ -70,26 +70,30 @@ class _TodayPageState extends State<TodayPage> {
             => _toHomePage(context), icon: Icon(Icons.arrow_back)
         )
       ),
-      body: SafeArea(
+      body: 
+      Center(child:
+        Column(children: [        
+          SizedBox(height: 50),
+      /*SafeArea(
         top: true,
         child: Stack(
           children: [
-            Expanded(child:
-            SizedBox(height: 500),),
             Padding(
               padding: EdgeInsets.all(24),
               child: Column(
                 mainAxisSize: MainAxisSize.max,
                 crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                      QuizQuestion(
-                      question: questions[currentQuestionIndex],
-                      answerQuestion: answerQuestion,
-                  ),
-                ],
+                  children: [*/
+          QuizQuestion(
+            question: questions[currentQuestionIndex],
+            answerQuestion: answerQuestion,
+            ),
+      /*          ],
               
             ),
-            ),
+            ),*/
+            Center(
+            child:
             Opacity(
                       opacity: 0.1,
                       child: Align(
@@ -101,8 +105,14 @@ class _TodayPageState extends State<TodayPage> {
                           ),
                         ),
                     ),
-          ],
+        
+            ),
+        /*  ],
         ),
+      ),
+    );*/
+        ],
+      ),
       ),
     );
   }

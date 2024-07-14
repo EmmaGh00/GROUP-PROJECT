@@ -19,7 +19,7 @@ class _LoginPageState extends State<LoginPage> {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
-        title: Text("My Safe Plan",
+        title: Text("TrueNorth",
           style: TextStyle(
             fontStyle: FontStyle.italic,
             fontWeight: FontWeight.bold,

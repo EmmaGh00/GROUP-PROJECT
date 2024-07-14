@@ -49,6 +49,27 @@ class HomePage extends StatelessWidget {
           decoration: BoxDecoration(borderRadius: BorderRadius.circular(10)),
           child: Column(
             children:[
+              
+                Text('Find your True North. \n    Stay the Course.',
+                  style: TextStyle(
+                    fontSize: 18,
+                    fontStyle: FontStyle.italic,
+                    fontWeight: FontWeight.bold,
+                    fontFamily: 'Times New Roman', 
+                    letterSpacing:0.5,
+                    foreground: Paint()
+                      ..shader = ui.Gradient.linear(
+                        const Offset(0, 20),
+                        const Offset(250, 20),
+                        <Color> [
+                          Color.fromARGB(255, 204, 60, 218).withOpacity(1),
+                          Color.fromARGB(255, 177, 31, 230).withOpacity(1),
+                        ]
+                      )
+                  ),
+                ),
+              
+
               SizedBox(height: 50),
               Expanded(
                 child: Text('Points: ${Provider.of<ScoreModel>(context).score}',
@@ -331,7 +352,7 @@ class HomePage extends StatelessWidget {
                 color: Colors.lightBlue,
               ),
               child: Center(
-                child: Text('My Safe Plan', 
+                child: Text('TrueNorth', 
                   style: TextStyle(
                     color: Colors.white,
                     fontStyle: FontStyle.italic,
