@@ -19,7 +19,7 @@ class RestDataPlot extends StatelessWidget {
       title: ChartTitle(text: 'HR_rest'),
       primaryXAxis: const DateTimeAxis(majorGridLines: MajorGridLines(width: 0)),
       primaryYAxis: const NumericAxis(
-          labelFormat: '{value} HR_rest',
+          labelFormat: '{value} bpm',
           axisLine: AxisLine(width: 0),
           majorTickLines: MajorTickLines(color: Colors.transparent)),
       series: _getRestDataSeries(),

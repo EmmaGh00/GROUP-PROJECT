@@ -19,7 +19,7 @@ class SleepDataPlot extends StatelessWidget {
       title: ChartTitle(text: 'Sleep'),
       primaryXAxis: const DateTimeAxis(majorGridLines: MajorGridLines(width: 0)),
       primaryYAxis: const NumericAxis(
-          labelFormat: '{value} Sleep',
+          labelFormat: '{value} min',
           axisLine: AxisLine(width: 0),
           majorTickLines: MajorTickLines(color: Colors.transparent)),
       series: _getSleepDataSeries(),

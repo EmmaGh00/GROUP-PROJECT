@@ -20,7 +20,7 @@ class HRDataPlot extends StatelessWidget {
       title: ChartTitle(text: 'HR'),
       primaryXAxis: const DateTimeAxis(majorGridLines: MajorGridLines(width: 0)),
       primaryYAxis: const NumericAxis(
-          labelFormat: '{value} HR',
+          labelFormat: '{value} bpm',
           axisLine: AxisLine(width: 0),
           majorTickLines: MajorTickLines(color: Colors.transparent)),
       series: _getHRDataSeries(),
